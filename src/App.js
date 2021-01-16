@@ -114,19 +114,21 @@ export default function App() {
   return (
     <Router>
       <Switch>
+      {/*
         <Route path="/components/:type/:subtype/:name"> //see ComponentRenderer.js to see how :type, :subtype, and :name params are assigned values
           <ComponentRenderer />
         </Route>
         <Route path="/components/:type/:name">
           <ComponentRenderer />
         </Route>
-        <Route path="/">
+        */}
+        <Route exact path="/">
           <MainLandingPage />
         </Route>
-        <Route path="/profile">
+        <Route exact path="/profile">
           <ProfilePage />
         </Route>
-        <Route path="/signup">
+        <Route exact path="/signup">
           <SignUpPage />
         </Route>
       </Switch>

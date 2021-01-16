@@ -9,6 +9,10 @@ import useAnimatedNavToggler from "../../helpers/useAnimatedNavToggler.js";
 import logo from "images/flamelogo.png";
 import { ReactComponent as MenuIcon } from "feather-icons/dist/icons/menu.svg";
 import { ReactComponent as CloseIcon } from "feather-icons/dist/icons/x.svg";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+import Login from "../../pages/Login.js";
+import Signup from "../../pages/SignupCampfire.js";
 
 const Header = tw.header`
   flex justify-between items-center
@@ -73,8 +77,8 @@ export default ({ roundedHeaderButton = false, logoLink, links, className, colla
   const defaultLinks = [
     <NavLinks key={1}>
       <NavLink href="/#">Home</NavLink>
-      <NavLink href="/#">Profile</NavLink>
-      <NavLink href="/#">Read</NavLink>
+      <NavLink href="/profile">Profile</NavLink>
+      <NavLink href="/signup">Read</NavLink>
       <NavLink href="/#">Write</NavLink>
       {/*
       <NavLink href="/#" tw="lg:ml-12!">
