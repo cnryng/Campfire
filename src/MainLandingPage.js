@@ -304,8 +304,9 @@ import { Container as ContainerBase } from "components/misc/Layouts";
 import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
-import illustration from "images/landingPage.png";
+import illustration from "images/features.png";
 import logo from "images/flamelogo.png";
+import campfireillustrationSrc from "images/campfire-people.jpg";
 import googleIconImageSrc from "images/google-icon.png";
 import twitterIconImageSrc from "images/twitter-icon.png";
 import { ReactComponent as SignUpIcon } from "feather-icons/dist/icons/user-plus.svg";
@@ -316,9 +317,9 @@ const Container = tw(ContainerBase)`min-h-screen bg-primary-900 text-white font-
 const Content = tw.div`max-w-screen-2xl m-0 sm:mx-20 sm:my-16 bg-white text-gray-900 shadow sm:rounded-lg flex justify-center flex-1`;
 const MainContainer = tw.div`lg:w-1/2 xl:w-5/12 p-6 sm:p-12`;
 const LogoLink = tw.a``;
-const LogoImage = tw.img`h-12 mx-auto`;
+const LogoImage = tw.img`lg:w-10/12 m-5 mx-auto`;
 const MainContent = tw.div`mt-12 flex flex-col items-center`;
-const Heading = tw.h1`text-2xl xl:text-3xl font-extrabold`;
+const Heading = tw.h1`text-2xl xl:text-3xl font-extrabold text-orange-600 `;
 const FormContainer = tw.div`w-full flex-1 mt-8`;
 
 const DividerTextContainer = tw.div`my-12 border-b text-center relative`;
@@ -343,7 +344,7 @@ const IllustrationImage = styled.div`
 
 export default ({
                     logoLinkUrl = "#",
-                    illustrationImageSrc = illustration,
+                    illustrationImageSrc = campfireillustrationSrc,
                     headingText = "Share your thoughts just like you would at a campfire.",
                     socialButtons = [
                         {
@@ -357,7 +358,8 @@ export default ({
                             url: "https://twitter.com"
                         }
                     ],
-                    submitButtonText = "Sign Up",
+                    SignUpButtonText = "Sign Up",
+                    SignInButtonText = "Sign In",
                     SubmitButtonIcon = SignUpIcon,
                     tosUrl = "#",
                     privacyPolicyUrl = "#",
@@ -368,9 +370,6 @@ export default ({
         <Header />
         <Content>
             <MainContainer>
-                <LogoLink href={logoLinkUrl}>
-                    <LogoImage src={logo} />
-                </LogoLink>
                 <MainContent>
                     <Heading>{headingText}</Heading>
                     {/*<FormContainer>*/}
@@ -412,20 +411,17 @@ export default ({
                   </a>
                 </p>
                 */}
-                    <p tw="mt-8 text-sm text-gray-600 text-center">
-                        <table>
-                            <tr>
-                                <td><button>Sign Up</button></td>
-                                <td><button>Sign In</button></td>
-                            </tr>
-                            <tr>
-
-                            </tr>
-                        </table>
-                    </p>
-                    {/*</Form>*/}
-                    {/*</FormContainer>*/}
+                <LogoImage src={illustration} />
+                <SubmitButton type="submit">
+                  <SubmitButtonIcon className="icon" />
+                  <span className="text">{SignUpButtonText}</span>
+                </SubmitButton>
+                <SubmitButton type="submit">
+                  <SubmitButtonIcon className="icon" />
+                  <span className="text">{SignInButtonText}</span>
+                </SubmitButton>
                 </MainContent>
+
             </MainContainer>
 
             <IllustrationContainer>

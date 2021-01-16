@@ -101,6 +101,7 @@ import SignupPage from "pages/SignupCampfire.js";
 // import TermsOfServicePage from "pages/TermsOfService.js";
 // import PrivacyPolicyPage from "pages/PrivacyPolicy.js";
 import BigInput from "pages/BigInput.js";
+import Profile from "pages/Profile.js";
 
 import ComponentRenderer from "ComponentRenderer.js";
 import MainLandingPage from "MainLandingPage.js";
