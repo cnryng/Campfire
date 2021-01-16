@@ -36,7 +36,7 @@ const SubmitButton = tw(PrimaryButtonBase)`inline-block mt-8`
 
 export default ({
   subheading = "Profile",
-  heading = <>Talk to friends at the campfire <span tw="text-primary-500">without compromising</span> your identity<wbr/></>,
+  heading = <>Talk at the campfire <span tw="text-primary-500">without compromising</span> your identity<wbr/></>,
   description = "All of your works will be published anonymously using your pen name.",
   submitButtonText = "Update",
   formAction = "#",
