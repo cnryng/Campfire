@@ -5,7 +5,7 @@ import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import illustration from "images/signup-illustration.svg";
-import logo from "images/logo.svg";
+import logo from "images/flamelogo.png";
 import googleIconImageSrc from "images/google-icon.png";
 import twitterIconImageSrc from "images/twitter-icon.png";
 import { ReactComponent as SignUpIcon } from "feather-icons/dist/icons/user-plus.svg";
@@ -78,7 +78,7 @@ export default ({
   privacyPolicyUrl = "#",
   signInUrl = "#"
 }) => (
-  
+
   <AnimationRevealPage>
     <Header />
       <Content>
@@ -108,7 +108,6 @@ export default ({
                 <Input type="text" placeholder="Name" />
                 <Input type="text" placeholder="Pen Name" />
                 <Input type="number" placeholder="Age" />
-                <Input type="password" placeholder="Password" />
                 <Input type="email" placeholder="Email" />
                 <Input type="password" placeholder="Password" />
                 <SubmitButton type="submit">

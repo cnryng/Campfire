@@ -123,12 +123,6 @@ export default function App() {
         <Route path="/">
           <MainLandingPage />
         </Route>
-        <Route path="/profile">
-          <ProfilePage />
-        </Route>
-        <Route path="/signup">
-          <SignUpPage />
-        </Route>
       </Switch>
     </Router>
   );
