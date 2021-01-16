@@ -24,7 +24,7 @@ import SignupPage from "pages/Signup.js";
 import PricingPage from "pages/Pricing.js";
 import AboutUsPage from "pages/AboutUs.js";
 import ContactUsPage from "pages/ContactUs.js";
-import BlogIndexPage from "pages/BlogIndex.js";
+import BlogIndexPage from "pages/BlogIndexCampfire.js";
 import TermsOfServicePage from "pages/TermsOfService.js";
 import PrivacyPolicyPage from "pages/PrivacyPolicy.js";
 
@@ -370,7 +370,7 @@ export const components = {
           component: ThreeColSimpleWithImageAndDashedBorderBlog,
           url: "/components/blocks/Blog/ThreeColSimpleWithImageAndDashedBorder",
         },
-      } 
+      }
     },
 
     Testimonial: {

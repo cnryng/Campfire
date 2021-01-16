@@ -4,7 +4,7 @@ import { Container, ContentWithPaddingXl } from "components/misc/Layouts";
 import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro";
-import Header from "components/headers/light.js";
+import Header from "components/headers/lightCampfire.js";
 import Footer from "components/footers/FiveColumnWithInputForm.js";
 import { SectionHeading } from "components/misc/Headings";
 import { PrimaryButton } from "components/misc/Buttons";
@@ -38,23 +38,26 @@ const Image = styled.div`
   ${tw`h-64 w-full bg-cover bg-center rounded-t-lg`}
 `;
 const Info = tw.div`p-8 border-2 border-t-0 rounded-lg rounded-t-none`;
-const Category = tw.div`uppercase text-primary-500 text-xs font-bold tracking-widest leading-loose after:content after:block after:border-b-2 after:border-primary-500 after:w-8`;
+const Author = tw.div`uppercase text-primary-500 text-xs font-bold tracking-widest leading-loose after:content after:block after:border-b-2 after:border-primary-500 after:w-8`;
 const CreationDate = tw.div`mt-4 uppercase text-gray-600 italic font-semibold text-xs`;
 const Title = tw.div`mt-1 font-black text-2xl text-gray-900 group-hover:text-primary-500 transition duration-300`;
 const Description = tw.div``;
 
 const ButtonContainer = tw.div`flex justify-center`;
 const LoadMoreButton = tw(PrimaryButton)`mt-16 mx-auto`;
+const RandomButton = tw(PrimaryButton)`mt-16 mx-auto`;
+const TopButton = tw(PrimaryButton)`mt-16 mx-auto`;
 
 export default ({
-  headingText = "Blog Posts",
+  headingText = "Campfire Feed",
+  description = "Talking around a fire is credited with advancing human culture 40,000 years ago. It’s how our ancestors bonded, relaxed, and entertained each other. Now we can do the same - to share our individual stories and connect with each other.",
   posts = [
     {
       imageSrc:
         "https://images.unsplash.com/photo-1499678329028-101435549a4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1024&q=80",
-      category: "Travel Tips",
+      author: "Pen Name",
       date: "April 21, 2020",
-      title: "Safely Travel in Foreign Countries",
+      title: "Today's Prompt",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       url: "https://timerse.com",
@@ -84,6 +87,12 @@ export default ({
   const onLoadMoreClick = () => {
     setVisible(v => v + 6);
   };
+  const onRandomClick = () => {
+    setVisible(v => v + 6);
+  };
+  const onTopClick = () => {
+    setVisible(v => v + 6);
+  };
   return (
     <AnimationRevealPage>
       <Header />
@@ -92,13 +101,20 @@ export default ({
           <HeadingRow>
             <Heading>{headingText}</Heading>
           </HeadingRow>
+          <h2>{description}</h2>
+          <ButtonContainer>
+          <TopButton onClick={onLoadMoreClick}>Top Submissions</TopButton>
+        </ButtonContainer>
+        <ButtonContainer className="float-right">
+        <RandomButton onClick={onLoadMoreClick}>Random Submissions</RandomButton>
+      </ButtonContainer>
           <Posts>
             {posts.slice(0, visible).map((post, index) => (
               <PostContainer key={index} featured={post.featured}>
                 <Post className="group" as="a" href={post.url}>
                   <Image imageSrc={post.imageSrc} />
                   <Info>
-                    <Category>{post.category}</Category>
+                    <Author>{post.category}</Author>
                     <CreationDate>{post.date}</CreationDate>
                     <Title>{post.title}</Title>
                     {post.featured && post.description && <Description>{post.description}</Description>}
@@ -114,7 +130,6 @@ export default ({
           )}
         </ContentWithPaddingXl>
       </Container>
-      <Footer />
     </AnimationRevealPage>
   );
 };
@@ -122,8 +137,7 @@ export default ({
 const getPlaceholderPost = () => ({
   imageSrc:
     "https://images.unsplash.com/photo-1418854982207-12f710b74003?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1024&q=80",
-  category: "Travel Guide",
-  date: "April 19, 2020",
+  category: "Pen Name",
   title: "Visit the beautiful Alps in Switzerland",
   description:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
