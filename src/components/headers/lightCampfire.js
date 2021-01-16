@@ -9,6 +9,10 @@ import useAnimatedNavToggler from "../../helpers/useAnimatedNavToggler.js";
 import logo from "images/flamelogo.png";
 import { ReactComponent as MenuIcon } from "feather-icons/dist/icons/menu.svg";
 import { ReactComponent as CloseIcon } from "feather-icons/dist/icons/x.svg";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+import Login from "../../pages/Login.js";
+import Signup from "../../pages/SignupCampfire.js";
 
 const Header = tw.header`
   flex justify-between items-center

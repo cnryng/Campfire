@@ -106,6 +106,8 @@ import ComponentRenderer from "ComponentRenderer.js";
 import MainLandingPage from "MainLandingPage.js";
 import SignUpPage from "./pages/SignupCampfire.js";
 import ProfilePage from "./pages/Profile.js";
+import BlogPage from "./pages/BlogIndexCampfire.js";
+import WritePage from "./pages/BigInput.js";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -114,15 +116,30 @@ export default function App() {
   return (
     <Router>
       <Switch>
+      {/*
         <Route path="/components/:type/:subtype/:name"> //see ComponentRenderer.js to see how :type, :subtype, and :name params are assigned values
           <ComponentRenderer />
         </Route>
         <Route path="/components/:type/:name">
           <ComponentRenderer />
         </Route>
-        <Route path="/">
+        */}
+        <Route exact path="/">
           <MainLandingPage />
         </Route>
+        <Route exact path="/profile">
+          <ProfilePage />
+        </Route>
+        <Route exact path="/signup">
+          <SignUpPage />
+        </Route>
+        <Route exact path="/read">
+          <BlogPage />
+        </Route>
+        <Route exact path="/write">
+          <WritePage />
+        </Route>
+
       </Switch>
     </Router>
   );
