@@ -101,10 +101,11 @@ import SignupPage from "pages/SignupCampfire.js";
 // import TermsOfServicePage from "pages/TermsOfService.js";
 // import PrivacyPolicyPage from "pages/PrivacyPolicy.js";
 import BigInput from "pages/BigInput.js";
-import Profile from "pages/Profile.js";
 
 import ComponentRenderer from "ComponentRenderer.js";
 import MainLandingPage from "MainLandingPage.js";
+import SignUpPage from "./pages/SignupCampfire.js";
+import ProfilePage from "./pages/Profile.js";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -121,6 +122,12 @@ export default function App() {
         </Route>
         <Route path="/">
           <MainLandingPage />
+        </Route>
+        <Route path="/profile">
+          <ProfilePage />
+        </Route>
+        <Route path="/signup">
+          <SignUpPage />
         </Route>
       </Switch>
     </Router>
