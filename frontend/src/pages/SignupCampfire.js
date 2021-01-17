@@ -67,7 +67,7 @@ export default ({
     let [message, setMessage] = useState("");
     let history = useHistory();
     let signUp = () => {
-        fetch("https://harrynull.tech/campfire/api/user/register", {
+        fetch("https://ourcampfire.space/api/user/register", {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({username: username, password: password})

@@ -56,7 +56,7 @@ export default ({
     let [stats, setStats] = useState({});
     let [statsRequested, setStatsRequested] = useState(false);
     let submit = () => {
-        fetch("https://harrynull.tech/campfire/api/user/change_pen_name", {
+        fetch("https://ourcampfire.space/api/user/change_pen_name", {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({penname: penName, session: session})
@@ -70,7 +70,7 @@ export default ({
         })
     };
     if (!statsRequested) {
-        fetch("https://harrynull.tech/campfire/api/stats", {
+        fetch("https://ourcampfire.space/api/stats", {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({penname: penName, session: session})

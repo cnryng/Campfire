@@ -66,7 +66,7 @@ export default () => {
     const [posts, setPosts] = useState(false);
     const [postInModal, setPostInModal] = useState({});
     if (!posts) {
-        fetch("https://harrynull.tech/campfire/api/list").then((r) => r.json()).then((resp) => {
+        fetch("https://ourcampfire.space/api/list").then((r) => r.json()).then((resp) => {
             setPosts(resp.posts)
         })
     }
@@ -83,7 +83,7 @@ export default () => {
     const [comment, setComment] = useState(false);
     const sendComment = (pid) => {
         console.log({comment: comment, post_id: pid, session: session});
-        fetch("https://harrynull.tech/campfire/api/comment", {
+        fetch("https://ourcampfire.space/api/comment", {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({comment: comment, post_id: pid, session: session})
@@ -92,7 +92,7 @@ export default () => {
     };
 
     const onEmojiClick = (pid, event, emojiObject) => {
-        fetch("https://harrynull.tech/campfire/api/react", {
+        fetch("https://ourcampfire.space/api/react", {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({react: emojiObject.emoji, post_id: pid, session: session})

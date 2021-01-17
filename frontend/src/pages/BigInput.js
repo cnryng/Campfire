@@ -100,7 +100,7 @@ export default () => {
     let submit = () => {
         const cookies = new Cookies();
         const session = cookies.get("session");
-        fetch("https://harrynull.tech/campfire/api/post", {
+        fetch("https://ourcampfire.space/api/post", {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({content: content, anonymous: anonymous, prompt: prompt, session: session})
