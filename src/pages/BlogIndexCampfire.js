@@ -115,6 +115,16 @@ export default () => {
                     <Description>Talking around a fire is credited with advancing human culture 40,000 years ago.
                         It’s how our ancestors bonded, relaxed, and entertained each other. Now we can do the same -
                         to share our individual stories and connect with each other.</Description>
+
+                        <RandomButton type="submit">
+                          <span className="text">Shuffle Submissions</span>
+                        </RandomButton>
+                        <TopButton type="submit">
+                          <span className="text">Top Submissions</span>
+                        </TopButton>
+                        <YourButton type="submit">
+                          <span className="text">Your Submissions</span>
+                        </YourButton>
                     <Posts>
                         <Modal show={show} onHide={handleClose}>
                             <Modal.Header closeButton>
