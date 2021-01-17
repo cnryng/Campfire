@@ -53,7 +53,7 @@ const TopButton = tw(PrimaryButton)`mt-16 mr-5`;
 const YourButton = tw(PrimaryButton)`mt-16 mr-5`;
 const Input = tw.textarea`w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 focus:outline-none focus:border-gray-400 focus:bg-white mt-5 first:mt-0`;
 const SubmitButton = styled.button`
-  ${tw`mt-5 tracking-wide font-semibold bg-primary-200 text-gray-100 w-full py-4 rounded-lg hover:bg-primary-900 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none`}
+  ${tw`mt-5 tracking-wide font-semibold bg-primary-700 text-gray-100 w-full py-4 rounded-lg hover:bg-primary-900 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none`}
   .icon {
     ${tw`w-6 h-6 -ml-2`}
   }
