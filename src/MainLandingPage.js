@@ -314,6 +314,8 @@ import Header from "components/headers/lightCampfire.js";
 
 import { GoogleLogin } from 'react-google-login';
 import LoginGoogle from 'LoginGoogle.js';
+import { Link } from "react-router-dom";
+
 
 const Container = tw(ContainerBase)`min-h-screen bg-primary-900 text-white font-medium flex justify-center -m-8`;
 const Content = tw.div`max-w-screen-2xl m-0 sm:mx-20 sm:my-16 bg-white text-gray-900 shadow sm:rounded-lg flex justify-center flex-1`;
@@ -348,6 +350,8 @@ const clientId = '42584847096-0l1ab2ofqql8qh5laiokvgkmhboot6t2.apps.googleuserco
 const responseGoogle = (response) => {
   console.log(response);
 }
+
+
 
 export default ({
                     logoLinkUrl = "#",
@@ -422,9 +426,11 @@ export default ({
                 <LogoImage src={illustration} />
 
                 
-                <SubmitButton type="submit">
-                  <SubmitButtonIcon className="icon" />
-                  <span className="text">{SignUpButtonText}</span>
+                <SubmitButton type="submit" href="/signup">
+                    <SubmitButtonIcon className="icon"/>
+                    <Link to="/signup">
+                    <span className="text">{SignUpButtonText}</span>
+                    </Link>
                 </SubmitButton>
                 
                 <SubmitButton type="submit">

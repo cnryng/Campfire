@@ -140,7 +140,10 @@ export default function App() {
         <Route exact path="/write">
           <WritePage />
         </Route>
-
+        {/*
+        <Route exact path="/signup">
+          <WritePage />
+        </Route>*/}
       </Switch>
     </Router>
   );
