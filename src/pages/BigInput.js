@@ -101,7 +101,6 @@ headingText = questions[Math.floor(Math.random() * questions.length)],
       url: "https://twitter.com"
     }
   ],
-  wordlimit = "500 Word Limit",
   submitButtonText = "Submit",
   SubmitButtonIcon = SignUpIcon,
   tosUrl = "#",
@@ -127,7 +126,7 @@ headingText = questions[Math.floor(Math.random() * questions.length)],
   } < /span>
   </SubmitButton>
   <div className="m-4">
-  <h2> 500 Word Limit </h2>
+  <h2>*500 Word Limit </h2>
   </div>
   </MainContent>
   </MainContainer>

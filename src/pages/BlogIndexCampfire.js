@@ -46,8 +46,9 @@ const Description = tw.div``;
 
 const ButtonContainer = tw.div`flex justify-center`;
 const LoadMoreButton = tw(PrimaryButton)`mt-16 mx-auto`;
-const RandomButton = tw(PrimaryButton)`mt-16 mx-auto`;
-const TopButton = tw(PrimaryButton)`mt-16 mx-auto`;
+const RandomButton = tw(PrimaryButton)`mt-16 mr-5`;
+const TopButton = tw(PrimaryButton)`mt-16 mr-5`;
+const YourButton = tw(PrimaryButton)`mt-16 mr-5`;
 
 export default ({
   headingText = "Campfire Feed",
@@ -94,13 +95,11 @@ export default ({
             <Heading>{headingText}</Heading>
           </HeadingRow>
           <Description>{description}</Description>
-
-          <ButtonContainer >
+        <div class="flex flex-row">
           <TopButton onClick={onLoadMoreClick}>Top Submissions</TopButton>
-        </ButtonContainer>
-        <ButtonContainer>
         <RandomButton onClick={onLoadMoreClick}>Random Submissions</RandomButton>
-      </ButtonContainer>
+      <YourButton onClick={onLoadMoreClick}>Your Submissions</YourButton>
+    </div>
           <Posts>
             {posts.slice(0, visible).map((post, index) => (
               <PostContainer key={index} featured={post.featured}>

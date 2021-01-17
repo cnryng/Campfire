@@ -4,7 +4,7 @@ import tw from "twin.macro";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import Header from "components/headers/lightCampfire.js";
 import Footer from "components/footers/FiveColumnWithInputForm.js";
-import ContactUsForm from "pages/TwoColContactUsWithIllustrationFullForm.js";
+import ContactUsForm from "components/forms/TwoColContactUsWithIllustrationFullForm.js";
 import ContactDetails from "components/cards/ThreeColContactDetails.js";
 
 const Address = tw.span`leading-relaxed`;
@@ -20,3 +20,9 @@ export default () => {
     </AnimationRevealPage>
   );
 };
+
+// const penName = ContactUsForm/
+// <Link to={{
+//   pathname: '/Profil',
+//   state: [{id: 1, name: 'Ford', color: 'red'}]
+// }}> Your Page </Link>
