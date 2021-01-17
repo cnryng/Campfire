@@ -59,26 +59,28 @@ var sectionStyle = {
     backgroundImage: `url(${night})`
 };
 
+const questions = ["Who inspires you? Why?",
+    "What is something you are proud of?",
+    "Write a short letter to your high school self.",
+    "What would you do if you knew you could not fail?",
+    "What is your ideal life? How can you achieve it?",
+    "What is going well in your life right now?",
+    "Describe in detail what you want your life to be like 5 years from now.",
+    "If you had a million dollars, what would you spend it on and why?",
+    "Are you living to your full potential? If not, why?",
+    "Are you holding grudges? Write them down and let them go.",
+    "What makes you feel the most confident?",
+    "What was your biggest learning moment this week?",
+    "Write a thank you letter to your body.",
+    "What do you wish more people knew about you and why?",
+    "If you could change anything about yourself what would it be and why?",
+    "How would you describe yourself to a stranger?"
+];
+
 export default () => {
     const [prompt, setPrompt] = useState("");
+    const [anonymous, setAnonymous] = useState(false);
     if (prompt === "") {
-        let questions = ["Who inspires you? Why?",
-            "What is something you are proud of?",
-            "Write a short letter to your high school self.",
-            "What would you do if you knew you could not fail?",
-            "What is your ideal life? How can you achieve it?",
-            "What is going well in your life right now?",
-            "Describe in detail what you want your life to be like 5 years from now.",
-            "If you had a million dollars, what would you spend it on and why?",
-            "Are you living to your full potential? If not, why?",
-            "Are you holding grudges? Write them down and let them go.",
-            "What makes you feel the most confident?",
-            "What was your biggest learning moment this week?",
-            "Write a thank you letter to your body.",
-            "What do you wish more people knew about you and why?",
-            "If you could change anything about yourself what would it be and why?",
-            "How would you describe yourself to a stranger?"
-        ];
 
         setPrompt(questions[Math.floor(Math.random() * questions.length)]);
     }
@@ -88,7 +90,7 @@ export default () => {
         fetch("https://harrynull.tech/campfire/api/post", {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({content: content})
+            body: JSON.stringify({content: content, anonymous: anonymous, prompt: prompt})
         }).then(() => {
             setContent("");
         })
@@ -106,7 +108,7 @@ export default () => {
                         <span className="text"> Submit </span>
                     </SubmitButton>
                     <div><h2>*500 Word Limit</h2></div>
-                    <Checkbox label=" Anonymous?"/>
+                    <Checkbox label="Anonymous?" checked={anonymous} onChange={(e) => setAnonymous(e.target.checked)}/>
                 </MainContent>
             </MainContainer>
         </Content>
