@@ -1,13 +1,20 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
-import { Container, ContentWithPaddingXl } from "components/misc/Layouts";
+import {Container, ContentWithPaddingXl} from "components/misc/Layouts";
 import tw from "twin.macro";
 import styled from "styled-components";
+<<<<<<< HEAD
 import { css } from "styled-components/macro";
 import Nav from "components/headers/lightCampfire.js";
 import Footer from "components/footers/FiveColumnWithInputForm.js";
 import { SectionHeading } from "components/misc/Headings";
 import { PrimaryButton } from "components/misc/Buttons";
+=======
+import {css} from "styled-components/macro";
+import Header from "components/headers/lightCampfire.js";
+import {SectionHeading} from "components/misc/Headings";
+import {PrimaryButton} from "components/misc/Buttons";
+>>>>>>> 20e9975d3b8762b3fc78925376ee02f64a638004
 
 const HeadingRow = tw.div`flex`;
 const Heading = tw(SectionHeading)`text-orange-600`;
@@ -49,6 +56,7 @@ const RandomButton = tw(PrimaryButton)`mt-10 mr-5`;
 const TopButton = tw(PrimaryButton)`mt-10 mr-5`;
 const YourButton = tw(PrimaryButton)`mt-10 mr-5`;
 
+<<<<<<< HEAD
 export default ({
   headingText = "Campfire Feed",
   description = "Talking around a fire is credited with advancing human culture 40,000 years ago. It’s how our ancestors bonded, relaxed, and entertained each other. Now we can do the same - to share our individual stories and connect with each other.",
@@ -146,3 +154,42 @@ const getPlaceholderPost = () => ({
   title: questions[Math.floor(Math.random() * questions.length)],
   url: "https://reddit.com"
 });
+=======
+export default () => {
+    const [posts, setPosts] = useState(false);
+    if (!posts) {
+        fetch("http://127.0.0.1:5000/list").then((r) => r.json()).then((resp) => {
+            console.log(resp);
+            setPosts(resp.posts)
+        })
+    }
+    return (
+        <AnimationRevealPage>
+            <Header/>
+            <Container>
+                <ContentWithPaddingXl>
+                    <HeadingRow>
+                        <Heading>Campfire Feed</Heading>
+                    </HeadingRow>
+                    <Description>Talking around a fire is credited with advancing human culture 40,000 years ago.
+                        It’s how our ancestors bonded, relaxed, and entertained each other. Now we can do the same -
+                        to share our individual stories and connect with each other.</Description>
+                    <Posts>
+                        {!posts || posts.map((post, index) => (
+                            <PostContainer key={index}>
+                                <Post className="group" as="a" href={post.url}>
+                                    <Info>
+                                        <Author>{post.content}</Author>
+                                        <CreationDate>{new Date(post.time).toLocaleTimeString()}</CreationDate>
+                                        <Description>{post.content}</Description>
+                                    </Info>
+                                </Post>
+                            </PostContainer>
+                        ))}
+                    </Posts>
+                </ContentWithPaddingXl>
+            </Container>
+        </AnimationRevealPage>
+    );
+};
+>>>>>>> 20e9975d3b8762b3fc78925376ee02f64a638004

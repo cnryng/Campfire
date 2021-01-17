@@ -314,6 +314,8 @@ import Header from "components/headers/lightCampfire.js";
 
 import { GoogleLogin } from 'react-google-login';
 import LoginGoogle from 'LoginGoogle.js';
+import { Link } from "react-router-dom";
+
 
 const Container = tw(ContainerBase)`min-h-screen bg-primary-900 text-white font-medium flex justify-center -m-8`;
 const Content = tw.div`max-w-screen-2xl m-0 sm:mx-20 sm:my-16 bg-white text-gray-900 shadow sm:rounded-lg flex justify-center flex-1`;
@@ -349,6 +351,8 @@ const responseGoogle = (response) => {
   console.log(response);
 }
 
+
+
 export default ({
                     logoLinkUrl = "#",
                     illustrationImageSrc = campfireillustrationSrc,
@@ -366,7 +370,7 @@ export default ({
                         }
                     ],
                     SignUpButtonText = "Sign Up",
-                    SignInButtonText = "Sign In with Google",
+                    SignInButtonText = "Sign In",
                     SubmitButtonIcon = SignUpIcon,
                     tosUrl = "#",
                     privacyPolicyUrl = "#",
@@ -421,12 +425,19 @@ export default ({
 
                 <LogoImage src={illustration} />
 
-                {/*
-                <SubmitButton type="submit">
-                  <SubmitButtonIcon className="icon" />
-                  <span className="text">{SignUpButtonText}</span>
-                </SubmitButton>
-                */}
+                <Link tw="w-full" to="/signup">
+                    <SubmitButton type="submit">
+                        <SubmitButtonIcon className="icon"/>
+                        <span className="text">{SignUpButtonText}</span>
+                    </SubmitButton>
+                </Link>
+
+                <Link tw="w-full" to="/signin">
+                    <SubmitButton type="submit">
+                        <SubmitButtonIcon className="icon" />
+                        <span className="text">{SignInButtonText}</span>
+                    </SubmitButton>
+                </Link>
                 {/*
                 <GoogleLogin
                     clientId={clientId}
@@ -441,9 +452,9 @@ export default ({
                     onFailure={responseGoogle}
                     cookiePolicy={'single_host_origin'}
                     isSignedIn={true}
-                />
-                */}
-                <LoginGoogle />
+                />*/}
+                
+                {/*<LoginGoogle />*/}
                 </MainContent>
 
             </MainContainer>
