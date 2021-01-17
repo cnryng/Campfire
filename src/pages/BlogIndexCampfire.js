@@ -101,7 +101,7 @@ export default () => {
                                 ) : (
                                     <span>No emoji Chosen</span>
                                 )}
-                                <Picker onEmojiClick={onEmojiClick}/>;
+                                <Picker onEmojiClick={onEmojiClick}/>
                             </div>
                             </Modal.Body>
                         </Modal>
