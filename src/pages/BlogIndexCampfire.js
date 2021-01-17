@@ -3,18 +3,12 @@ import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import {Container, ContentWithPaddingXl} from "components/misc/Layouts";
 import tw from "twin.macro";
 import styled from "styled-components";
-<<<<<<< HEAD
+
 import { css } from "styled-components/macro";
-import Nav from "components/headers/lightCampfire.js";
+import Header from "components/headers/lightCampfire.js";
 import Footer from "components/footers/FiveColumnWithInputForm.js";
 import { SectionHeading } from "components/misc/Headings";
 import { PrimaryButton } from "components/misc/Buttons";
-=======
-import {css} from "styled-components/macro";
-import Header from "components/headers/lightCampfire.js";
-import {SectionHeading} from "components/misc/Headings";
-import {PrimaryButton} from "components/misc/Buttons";
->>>>>>> 20e9975d3b8762b3fc78925376ee02f64a638004
 
 const HeadingRow = tw.div`flex`;
 const Heading = tw(SectionHeading)`text-orange-600`;
@@ -56,105 +50,6 @@ const RandomButton = tw(PrimaryButton)`mt-10 mr-5`;
 const TopButton = tw(PrimaryButton)`mt-10 mr-5`;
 const YourButton = tw(PrimaryButton)`mt-10 mr-5`;
 
-<<<<<<< HEAD
-export default ({
-  headingText = "Campfire Feed",
-  description = "Talking around a fire is credited with advancing human culture 40,000 years ago. It’s how our ancestors bonded, relaxed, and entertained each other. Now we can do the same - to share our individual stories and connect with each other.",
-  posts = [
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-  ]
-}) => {
-  const [visible, setVisible] = useState(6);
-  const onLoadMoreClick = () => {
-    setVisible(v => v + 6);
-  };
-  const onRandomClick = () => {
-    setVisible(v => v + 6);
-  };
-  const onTopClick = () => {
-    setVisible(v => v + 6);
-  };
-  return (
-    <AnimationRevealPage>
-      <Nav />
-      <Container>
-        <ContentWithPaddingXl>
-          <HeadingRow>
-            <Heading>{headingText}</Heading>
-          </HeadingRow>
-          <Description>{description}</Description>
-        <div class="flex flex-row">
-          <TopButton onClick={onLoadMoreClick}>Top Submissions</TopButton>
-        <RandomButton onClick={onLoadMoreClick}>Random Submissions</RandomButton>
-      <YourButton onClick={onLoadMoreClick}>Your Submissions</YourButton>
-    </div>
-          <Posts>
-            {posts.slice(0, visible).map((post, index) => (
-              <PostContainer key={index} featured={post.featured}>
-                <Post className="group" as="a" href={post.url}>
-                  <Info>
-                    <Author>{post.category}</Author>
-                    <CreationDate>{post.date}</CreationDate>
-                    <Title>{post.title}</Title>
-                  </Info>
-                </Post>
-              </PostContainer>
-            ))}
-          </Posts>
-          {visible < posts.length && (
-            <ButtonContainer>
-              <LoadMoreButton onClick={onLoadMoreClick}>Load More</LoadMoreButton>
-            </ButtonContainer>
-          )}
-        </ContentWithPaddingXl>
-      </Container>
-    </AnimationRevealPage>
-  );
-};
-
-const questions = ["Who inspires you? Why?",
-    "What is something you are proud of?",
-    "Write a short letter to your high school self.",
-    "What would you do if you knew you could not fail?",
-    "What is your ideal life? How can you achieve it?",
-    "What is going well in your life right now?",
-    "Describe in detail what you want your life to be like 5 years from now.",
-    "If you had a million dollars, what would you spend it on and why?",
-    "Are you living to your full potential? If not, why?",
-    "Are you holding grudges? Write them down and let them go.",
-    "What makes you feel the most confident?",
-    "What was your biggest learning moment this week?",
-    "Write a thank you letter to your body.",
-    "What do you wish more people knew about you and why?",
-    "If you could change anything about yourself what would it be and why?",
-    "How would you describe yourself to a stranger?"
-  ]
-
-const getPlaceholderPost = () => ({
-  category: "Pen Name",
-  title: questions[Math.floor(Math.random() * questions.length)],
-  url: "https://reddit.com"
-});
-=======
 export default () => {
     const [posts, setPosts] = useState(false);
     if (!posts) {
@@ -192,4 +87,3 @@ export default () => {
         </AnimationRevealPage>
     );
 };
->>>>>>> 20e9975d3b8762b3fc78925376ee02f64a638004

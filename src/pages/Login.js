@@ -5,7 +5,7 @@ import tw from "twin.macro";
 import styled from "styled-components";
 import {css} from "styled-components/macro"; //eslint-disable-line
 import illustration from "images/login-illustration.svg";
-import logo from "images/logo.svg";
+import logo from "images/flamelogo.png";
 import googleIconImageSrc from "images/google-icon.png";
 import twitterIconImageSrc from "images/twitter-icon.png";
 import { ReactComponent as LoginIcon } from "feather-icons/dist/icons/log-in.svg";
@@ -79,9 +79,7 @@ export default ({
     <Container>
       <Content>
         <MainContainer>
-          <LogoLink href={logoLinkUrl}>
             <LogoImage src={logo} />
-          </LogoLink>
           <MainContent>
             <Heading>{headingText}</Heading>
             <FormContainer>
@@ -95,9 +93,7 @@ export default ({
                   </SocialButton>
                 ))}
               </SocialButtonsContainer>
-              <DividerTextContainer>
-                <DividerText>Or Sign in with your e-mail</DividerText>
-              </DividerTextContainer>
+
               <Form>
                 <Input type="email" placeholder="Email" />
                 <Input type="password" placeholder="Password" />
@@ -114,7 +110,7 @@ export default ({
               <p tw="mt-8 text-sm text-gray-600 text-center">
                 Dont have an account?{" "}
                 <a href={signupUrl} tw="border-b border-gray-500 border-dotted">
-                  Sign Up
+                Sign In
                 </a>
               </p>
             </FormContainer>

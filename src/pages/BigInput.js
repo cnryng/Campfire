@@ -18,14 +18,14 @@ const MainContent = tw.div`mt-12 flex flex-col items-center`;
 const Heading = tw.h1`text-2xl xl:text-3xl font-extrabold text-orange-600`;
 const FormContainer = tw.div`w-full flex-1 mt-8`;
 
-<<<<<<< HEAD
-import CheckIcon from '@material-ui/icons/Check';
-import ToggleButton from '@material-ui/lab/ToggleButton';
-import StandaloneToggleButton from "pages/toggle.js"
-
-const SocialButtonsContainer = tw.div `flex flex-col items-center`;
-const SocialButton = styled.a `
-=======
+// <<<<<<< HEAD
+// import CheckIcon from '@material-ui/icons/Check';
+// import ToggleButton from '@material-ui/lab/ToggleButton';
+// import StandaloneToggleButton from "pages/toggle.js"
+//
+// const SocialButtonsContainer = tw.div `flex flex-col items-center`;
+// const SocialButton = styled.a `
+// =======
 const SocialButtonsContainer = tw.div`flex flex-col items-center`;
 const SocialButton = styled.a`
 >>>>>>> 20e9975d3b8762b3fc78925376ee02f64a638004
