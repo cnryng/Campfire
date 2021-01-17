@@ -31,7 +31,7 @@ def hello():
 
 # list today's posts
 @api.route('list')
-@crossdomain('http://localhost:3000')
+@crossdomain('*')
 def list_posts():
     today = datetime.datetime.now(tz=pytz.timezone('US/Eastern'))
     start = today.replace(hour=0, minute=0, second=0, microsecond=0)
@@ -42,7 +42,7 @@ def list_posts():
 
 
 @api.route('stats', methods=['GET', 'POST', 'OPTIONS'])
-@crossdomain('http://localhost:3000')
+@crossdomain('*')
 def stats():
     user = get_user_from_request()
     if user is None:
@@ -63,14 +63,14 @@ def stats():
 
 
 @api.route('daily_prompt')
-@crossdomain('http://localhost:3000')
+@crossdomain('*')
 def prompt():
     return jsonify({"success": True, "prompt": "do you like cat or dog?"})
 
 
 # arg: post_id, react
 @api.route('react', methods=['POST', 'OPTIONS'])
-@crossdomain('http://localhost:3000')
+@crossdomain('*')
 def react():
     react = get_arg('react')
     if react is None or react == "":
@@ -87,7 +87,7 @@ def react():
 
 # arg: post_id, comment
 @api.route('comment', methods=['POST', 'OPTIONS'])
-@crossdomain('http://localhost:3000')
+@crossdomain('*')
 def comment():
     comment = get_arg('comment')
     if comment is None or comment == "":
@@ -105,7 +105,7 @@ def comment():
 
 # arg: content, anonymous (boolean), prompt
 @api.route('post', methods=['POST', 'OPTIONS'])
-@crossdomain('http://localhost:3000')
+@crossdomain('*')
 def write_post():
     user = get_user_from_request()
     content = get_arg('content')
@@ -122,7 +122,7 @@ def write_post():
 
 # arg: username, password
 @api.route('user/register', methods=['POST', 'OPTIONS'])
-@crossdomain('http://localhost:3000')
+@crossdomain('*')
 def register():
     username = get_arg('username')
     password = get_arg('password')
