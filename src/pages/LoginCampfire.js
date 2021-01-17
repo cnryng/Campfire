@@ -58,7 +58,7 @@ const IllustrationImage = styled.div`
 export default ({
   logoLinkUrl = "#",
   illustrationImageSrc = illustration,
-  headingText = "Sign Up For Campfire",
+  headingText = "Sign In To Campfire",
   socialButtons = [
     {
       iconImageSrc: googleIconImageSrc,
@@ -71,7 +71,7 @@ export default ({
       url: "https://twitter.com"
     }
   ],
-  submitButtonText = "Sign Up",
+  submitButtonText = "Sign In",
   SubmitButtonIcon = SignUpIcon,
   tosUrl = "#",
   privacyPolicyUrl = "#",
@@ -122,12 +122,6 @@ export default ({
                   </a>
                 </p>
                 */}
-                <p tw="mt-8 text-sm text-gray-600 text-center">
-                  Already have an account?{" "}
-                  <a href={signInUrl} tw="border-b border-gray-500 border-dotted">
-                    Sign In
-                  </a>
-                </p>
               </Form>
             </FormContainer>
           </MainContent>
