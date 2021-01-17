@@ -108,6 +108,7 @@ import SignUpPage from "./pages/SignupCampfire.js";
 import ProfilePage from "./pages/Profile.js";
 import BlogPage from "./pages/BlogIndexCampfire.js";
 import WritePage from "./pages/BigInput.js";
+import LoginGoogle from "LoginGoogle.js";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
