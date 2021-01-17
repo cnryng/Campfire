@@ -9,6 +9,7 @@ import {SectionHeading} from "components/misc/Headings";
 import {PrimaryButton} from "components/misc/Buttons";
 import Picker from 'emoji-picker-react';
 import Modal from 'react-bootstrap/Modal'
+import { Editor } from "@tinymce/tinymce-react";
 
 const HeadingRow = tw.div`flex`;
 const Heading = tw(SectionHeading)`text-orange-600`;
@@ -94,12 +95,14 @@ export default () => {
                             <Modal.Body>
                                 {postInModal.content}
                                 <div>
-                                    {chosenEmoji ? (
-                                        <span>You chose: {chosenEmoji.emoji}</span>
-                                    ) : (
-                                        <span>No emoji Chosen</span>
-                                    )}
-                                    <Picker onEmojiClick={onEmojiClick}/>
+                                <Editor apiKey="hbxjzn6kr4k780yz53nv0be9a27e2u9efbbdaqbomg7p3d58"
+                                init={{
+                                  plugins: "emoticons",
+                                  toolbar: "emoticons",
+                                  toolbar_location: "bottom",
+                                  menubar: false,
+                                }}/>
+
                                 </div>
                             </Modal.Body>
                         </Modal>
