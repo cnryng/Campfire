@@ -8,6 +8,12 @@ import Header from "components/headers/lightCampfire.js";
 import {SectionHeading} from "components/misc/Headings";
 import {PrimaryButton} from "components/misc/Buttons";
 import Picker from 'emoji-picker-react';
+<<<<<<< HEAD
+import Modal from 'react-bootstrap/Modal';
+=======
+import Modal from 'react-bootstrap/Modal'
+import Button from 'react-bootstrap/Button'
+>>>>>>> 38b1e8ad32d3f4ded1318f91e1aaf1cbd1964b86
 
 const HeadingRow = tw.div`flex`;
 const Heading = tw(SectionHeading)`text-orange-600`;
@@ -68,6 +74,11 @@ export default () => {
         setChosenEmoji(emojiObject);
     };
 
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
     return (
         <AnimationRevealPage>
             <Header/>
@@ -81,8 +92,26 @@ export default () => {
                         to share our individual stories and connect with each other.</Description>
                     <Posts>
                         {!posts || posts.map((post, index) => (
+                          <Modal>
                             <PostContainer key={index}>
-                                <Post className="group" as="a" href={post.url}>
+                                <Post className="group" as="a" href={post.url}>                                 
+                                    <Button variant="primary" onClick={handleShow}>
+                                        Launch demo modal
+                                    </Button>
+                                    <Modal show={show} onHide={handleClose}>
+                                        <Modal.Header closeButton>
+                                            <Modal.Title>Modal heading</Modal.Title>
+                                        </Modal.Header>
+                                        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+                                        <Modal.Footer>
+                                            <Button variant="secondary" onClick={handleClose}>
+                                                Close
+                                            </Button>
+                                            <Button variant="primary" onClick={handleClose}>
+                                                Save Changes
+                                            </Button>
+                                        </Modal.Footer>
+                                    </Modal>
                                     <Info>
                                         <Author>{getName(post)}</Author>
                                         <CreationDate>{new Date(post.time * 1000).toLocaleTimeString()}</CreationDate>
@@ -91,6 +120,7 @@ export default () => {
                                     </Info>
                                 </Post>
                             </PostContainer>
+                          </Modal>
                         ))}
                     </Posts>
                 </ContentWithPaddingXl>

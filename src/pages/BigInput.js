@@ -115,17 +115,22 @@ export default () => {
                 <MainContent>
                     <Heading> {prompt} </Heading>
                     <Input type="text"
-                           maxLength="500"
+                           maxLength="1000"
                            placeholder="Write here..."
                            value={content}
                            onChange={(e) => setContent(e.target.value)}/>
                     <SubmitButton type="submit" onClick={submit}>
                         <span className="text"> Submit </span>
                     </SubmitButton>
+<<<<<<< HEAD
+                    <div><h2>*1000 Character Limit</h2></div>
+                    <Checkbox label=" Post as Anonymous?" checked={anonymous} onChange={(e) => setAnonymous(e.target.checked)}/>
+=======
                     <div><h2>*500 Word Limit</h2></div>
                     <Checkbox label="Anonymous?" onCheckboxChange={() => {
                         setAnonymous(!anonymous)
                     }}/>
+>>>>>>> 38b1e8ad32d3f4ded1318f91e1aaf1cbd1964b86
                 </MainContent>
             </MainContainer>
         </Content>
