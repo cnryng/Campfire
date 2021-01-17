@@ -9,6 +9,7 @@ import Footer from "components/footers/FiveColumnWithInputForm.js";
 import { SectionHeading } from "components/misc/Headings";
 import { PrimaryButton } from "components/misc/Buttons";
 
+
 const HeadingRow = tw.div`flex`;
 const Heading = tw(SectionHeading)`text-orange-600`;
 const Posts = tw.div`mt-6 sm:-mr-8 flex flex-wrap`;
@@ -52,17 +53,6 @@ export default ({
   headingText = "Campfire Feed",
   description = "Talking around a fire is credited with advancing human culture 40,000 years ago. It’s how our ancestors bonded, relaxed, and entertained each other. Now we can do the same - to share our individual stories and connect with each other.",
   posts = [
-    {
-      imageSrc:
-        "https://images.unsplash.com/photo-1499678329028-101435549a4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1024&q=80",
-      author: "Pen Name",
-      date: "April 21, 2020",
-      title: "Today's Prompt",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      url: "https://timerse.com",
-      featured: true
-    },
     getPlaceholderPost(),
     getPlaceholderPost(),
     getPlaceholderPost(),
@@ -80,10 +70,12 @@ export default ({
     getPlaceholderPost(),
     getPlaceholderPost(),
     getPlaceholderPost(),
-    getPlaceholderPost()
+    getPlaceholderPost(),
+    getPlaceholderPost(),
+    getPlaceholderPost(),
   ]
 }) => {
-  const [visible, setVisible] = useState(7);
+  const [visible, setVisible] = useState(6);
   const onLoadMoreClick = () => {
     setVisible(v => v + 6);
   };
@@ -113,7 +105,6 @@ export default ({
             {posts.slice(0, visible).map((post, index) => (
               <PostContainer key={index} featured={post.featured}>
                 <Post className="group" as="a" href={post.url}>
-                  <Image imageSrc={post.imageSrc} />
                   <Info>
                     <Author>{post.category}</Author>
                     <CreationDate>{post.date}</CreationDate>
@@ -135,11 +126,26 @@ export default ({
   );
 };
 
+const questions = ["Who inspires you? Why?",
+    "What is something you are proud of?",
+    "Write a short letter to your high school self.",
+    "What would you do if you knew you could not fail?",
+    "What is your ideal life? How can you achieve it?",
+    "What is going well in your life right now?",
+    "Describe in detail what you want your life to be like 5 years from now.",
+    "If you had a million dollars, what would you spend it on and why?",
+    "Are you living to your full potential? If not, why?",
+    "Are you holding grudges? Write them down and let them go.",
+    "What makes you feel the most confident?",
+    "What was your biggest learning moment this week?",
+    "Write a thank you letter to your body.",
+    "What do you wish more people knew about you and why?",
+    "If you could change anything about yourself what would it be and why?",
+    "How would you describe yourself to a stranger?"
+  ]
 const getPlaceholderPost = () => ({
-  imageSrc:
-    "https://images.unsplash.com/photo-1418854982207-12f710b74003?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1024&q=80",
   category: "Pen Name",
-  title: "Visit the beautiful Alps in Switzerland",
+  title: questions[Math.floor(Math.random() * questions.length)],
   description:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   url: "https://reddit.com"

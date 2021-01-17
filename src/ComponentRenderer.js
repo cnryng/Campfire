@@ -86,8 +86,8 @@ import TwoColumnPrimaryBackgroundFAQS from "components/faqs/TwoColumnPrimaryBack
 
 import SimpleContactUsForm from "components/forms/SimpleContactUs.js";
 import SimpleSubscribeNewsletterForm from "components/forms/SimpleSubscribeNewsletter.js";
-import TwoColContactUsForm from "components/forms/TwoColContactUsWithIllustration.js";
-import TwoColContactUsFullForm from "components/forms/TwoColContactUsWithIllustrationFullForm.js";
+import TwoColContactUsForm from "pages/TwoColContactUsWithIllustration.js";
+import TwoColContactUsFullForm from "pages/TwoColContactUsWithIllustrationFullForm.js";
 
 import GetStartedCTA from "components/cta/GetStarted.js";
 import GetStartedLightCTA from "components/cta/GetStartedLight.js";
