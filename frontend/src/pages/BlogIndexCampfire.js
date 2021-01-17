@@ -44,6 +44,7 @@ const Author = tw.div`uppercase text-primary-500 text-xs font-bold tracking-wide
 const CreationDate = tw.div`mt-4 uppercase text-gray-600 italic font-semibold text-xs`;
 const Title = tw.div`mt-1 font-black text-sm text-gray-600 group-hover:text-primary-500 transition duration-300`;
 const Description = tw.div``;
+const Entry = tw.div`text-primary-500 text-xl font-bold tracking-wide leading-loose`;
 
 const ButtonContainer = tw.div`flex justify-center`;
 const LoadMoreButton = tw(PrimaryButton)`mt-16 mx-auto`;
@@ -127,21 +128,26 @@ export default () => {
                     <Posts>
                         <Modal show={show} onHide={handleClose}>
                             <Modal.Header closeButton>
-                                <Modal.Title>{postInModal.prompt}</Modal.Title>
+                                <Modal.Title style={{color:"#dd6b20",fontWeight:"bold"}}>
+                                    {postInModal.prompt}
+                                </Modal.Title>
                             </Modal.Header>
                             <Modal.Body>
-                                <div style={{overflowWrap: "break-word"}}>
+                                <Entry style={{overflowWrap:'break-word'}}>
                                     {postInModal.content}
-                                </div>
+                                </Entry>
                                 <div>
                                     {postInModal.reacts ? Object.entries(JSON.parse(postInModal.reacts)).map(
                                         (k) => <p>{k}</p>) : ''}
                                 </div>
                                 <div>
                                     <SubmitButton onClick={() => setShowPicker(!showPicker)}>Send an Emoji</SubmitButton>
-                                    {showPicker ?
-                                        <Picker onEmojiClick={(e1, e2) =>
-                                            onEmojiClick(postInModal.id, e1, e2)}/> : ''}
+                                    <div>
+                                        {showPicker ?
+                                            <Picker onEmojiClick={(e1, e2) =>
+                                                onEmojiClick(postInModal.id, e1, e2)}/> : ''
+                                        }
+                                    </div>
                                 </div>
 
                                 <div>
