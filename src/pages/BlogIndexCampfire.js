@@ -92,7 +92,9 @@ export default () => {
                                 <Modal.Title>{postInModal.prompt}</Modal.Title>
                             </Modal.Header>
                             <Modal.Body>
-                            {postInModal.content}
+                            <div style={{ overflowWrap:"break-word" }}>
+                                {postInModal.content}
+                            </div>
                             <div>
                                 {chosenEmoji ? (
                                     <span>{chosenEmoji.emoji}</span>
@@ -113,7 +115,7 @@ export default () => {
                                         <Author>{getName(post)}</Author>
                                         <CreationDate>{new Date(post.time * 1000).toLocaleTimeString()}</CreationDate>
                                         <Title>{post.prompt}</Title>
-                                        <Description>{post.content}</Description>
+                                        <Description>{post.content.substring(0, 24) + ((post.content.length > 25) ? "..." : "")}</Description>
                                     </Info>
                                 </Post>
                             </PostContainer>
