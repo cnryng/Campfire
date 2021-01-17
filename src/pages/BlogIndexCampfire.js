@@ -85,7 +85,7 @@ export default () => {
                                 <Post className="group" as="a" href={post.url}>
                                     <Info>
                                         <Author>{getName(post)}</Author>
-                                        <CreationDate>{new Date(post.time).toLocaleTimeString()}</CreationDate>
+                                        <CreationDate>{new Date(post.time * 1000).toLocaleTimeString()}</CreationDate>
                                         <Description>{post.content}</Description>
                                     </Info>
                                 </Post>
@@ -99,7 +99,7 @@ export default () => {
                     ) : (
                         <span>No emoji Chosen</span>
                     )}
-                    <Picker onEmojiClick={onEmojiClick} />
+                    <Picker onEmojiClick={onEmojiClick}/>
                 </div>
             </Container>
         </AnimationRevealPage>
