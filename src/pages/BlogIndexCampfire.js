@@ -65,11 +65,21 @@ export default () => {
         else return post.poster_name;
     };
 
+    const cookies = new Cookies();
+    const session = cookies.get("session");
+
     const [showPicker, setShowPicker] = useState(false);
+    const [comment, setComment] = useState(false);
+    const sendComment = (pid) => {
+        console.log({comment: comment, post_id: pid, session: session});
+        fetch("https://harrynull.tech/campfire/api/comment", {
+            method: "POST",
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({comment: comment, post_id: pid, session: session})
+        });
+    };
 
     const onEmojiClick = (pid, event, emojiObject) => {
-        const cookies = new Cookies();
-        const session = cookies.get("session");
         fetch("https://harrynull.tech/campfire/api/react", {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
@@ -113,6 +123,14 @@ export default () => {
                                         <Picker onEmojiClick={(e1, e2) =>
                                             onEmojiClick(postInModal.id, e1, e2)}/> : ''}
                                 </div>
+
+                                <div>
+                                    {postInModal.comments ? Object.entries(JSON.parse(postInModal.comments)).map(
+                                        (k) => <p>{k}</p>) : ''}
+                                </div>
+                                <textarea onChange={(e) => setComment(e.target.value)}>
+                                </textarea>
+                                <button onClick={() => sendComment(postInModal.id)}>Send comment</button>
                             </Modal.Body>
                         </Modal>
                         {!posts || posts.map((post, index) => (
