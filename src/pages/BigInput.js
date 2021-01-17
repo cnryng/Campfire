@@ -7,6 +7,8 @@ import styled from "styled-components";
 import Header from "components/headers/lightCampfire.js";
 import night from "images/night.jpg";
 import Checkbox from "components/misc/Checkbox.js"
+import {useHistory} from "react-router-dom";
+import Cookies from "universal-cookie";
 
 const Container = tw(ContainerBase)
     `min-h-screen bg-primary-900 text-white font-medium flex justify-center -m-8`;
@@ -94,14 +96,18 @@ export default () => {
         setPrompt(questions[Math.floor(Math.random() * questions.length)]);
     }
     const [content, setContent] = useState("");
+    let history = useHistory();
 
     let submit = () => {
+        const cookies = new Cookies();
+        const session = cookies.get("session");
         fetch("https://harrynull.tech/campfire/api/post", {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({content: content, anonymous: anonymous, prompt: prompt})
+            body: JSON.stringify({content: content, anonymous: anonymous, prompt: prompt, session: session})
         }).then(() => {
             setContent("");
+            history.push('/read');
         })
     };
     return (<AnimationRevealPage><Header/><Content>
@@ -117,7 +123,9 @@ export default () => {
                         <span className="text"> Submit </span>
                     </SubmitButton>
                     <div><h2>*500 Word Limit</h2></div>
-                    <Checkbox label="Anonymous?" checked={anonymous} onChange={(e) => setAnonymous(e.target.checked)}/>
+                    <Checkbox label="Anonymous?" onCheckboxChange={() => {
+                        setAnonymous(!anonymous)
+                    }}/>
                 </MainContent>
             </MainContainer>
         </Content>
