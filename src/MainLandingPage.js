@@ -311,7 +311,7 @@ import googleIconImageSrc from "images/google-icon.png";
 import twitterIconImageSrc from "images/twitter-icon.png";
 import { ReactComponent as SignUpIcon } from "feather-icons/dist/icons/user-plus.svg";
 import Header from "components/headers/lightCampfire.js";
-
+import { useHistory } from "react-router-dom";
 
 const Container = tw(ContainerBase)`min-h-screen bg-primary-900 text-white font-medium flex justify-center -m-8`;
 const Content = tw.div`max-w-screen-2xl m-0 sm:mx-20 sm:my-16 bg-white text-gray-900 shadow sm:rounded-lg flex justify-center flex-1`;
@@ -412,11 +412,11 @@ export default ({
                 </p>
                 */}
                 <LogoImage src={illustration} />
-                <SubmitButton type="submit">
+                <SubmitButton href="/SignUp" type="submit">
                   <SubmitButtonIcon className="icon" />
                   <span className="text">{SignUpButtonText}</span>
                 </SubmitButton>
-                <SubmitButton type="submit">
+                <SubmitButton href="/SignUp" type="submit">
                   <SubmitButtonIcon className="icon" />
                   <span className="text">{SignInButtonText}</span>
                 </SubmitButton>
