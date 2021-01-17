@@ -91,7 +91,17 @@ export default () => {
                             <Modal.Header closeButton>
                                 <Modal.Title>{postInModal.prompt}</Modal.Title>
                             </Modal.Header>
-                            <Modal.Body>{postInModal.content}</Modal.Body>
+                            <Modal.Body>
+                                {postInModal.content}
+                                <div>
+                                    {chosenEmoji ? (
+                                        <span>You chose: {chosenEmoji.emoji}</span>
+                                    ) : (
+                                        <span>No emoji Chosen</span>
+                                    )}
+                                    <Picker onEmojiClick={onEmojiClick}/>
+                                </div>
+                            </Modal.Body>
                         </Modal>
                         {!posts || posts.map((post, index) => (
                             <PostContainer key={index}>
@@ -110,14 +120,6 @@ export default () => {
                         ))}
                     </Posts>
                 </ContentWithPaddingXl>
-                <div>
-                    {chosenEmoji ? (
-                        <span>You chose: {chosenEmoji.emoji}</span>
-                    ) : (
-                        <span>No emoji Chosen</span>
-                    )}
-                    <Picker onEmojiClick={onEmojiClick}/>
-                </div>
             </Container>
         </AnimationRevealPage>
     );
