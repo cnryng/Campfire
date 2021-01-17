@@ -20,3 +20,9 @@ export default () => {
     </AnimationRevealPage>
   );
 };
+
+// const penName = ContactUsForm/
+// <Link to={{
+//   pathname: '/Profil',
+//   state: [{id: 1, name: 'Ford', color: 'red'}]
+// }}> Your Page </Link>
