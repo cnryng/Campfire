@@ -9,6 +9,7 @@ import {SectionHeading} from "components/misc/Headings";
 import {PrimaryButton} from "components/misc/Buttons";
 import Picker from 'emoji-picker-react';
 import Modal from 'react-bootstrap/Modal'
+import Cookies from "universal-cookie";
 
 const HeadingRow = tw.div`flex`;
 const Heading = tw(SectionHeading)`text-orange-600`;
@@ -64,10 +65,27 @@ export default () => {
         else return post.poster_name;
     };
 
-    const [chosenEmoji, setChosenEmoji] = useState(null);
+    const cookies = new Cookies();
+    const session = cookies.get("session");
 
-    const onEmojiClick = (event, emojiObject) => {
-        setChosenEmoji(emojiObject);
+    const [showPicker, setShowPicker] = useState(false);
+    const [comment, setComment] = useState(false);
+    const sendComment = (pid) => {
+        console.log({comment: comment, post_id: pid, session: session});
+        fetch("https://harrynull.tech/campfire/api/comment", {
+            method: "POST",
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({comment: comment, post_id: pid, session: session})
+        });
+    };
+
+    const onEmojiClick = (pid, event, emojiObject) => {
+        fetch("https://harrynull.tech/campfire/api/react", {
+            method: "POST",
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({react: emojiObject.emoji, post_id: pid, session: session})
+        });
+        setShowPicker(false);
     };
 
     const [show, setShow] = useState(false);
@@ -92,17 +110,27 @@ export default () => {
                                 <Modal.Title>{postInModal.prompt}</Modal.Title>
                             </Modal.Header>
                             <Modal.Body>
-                            <div style={{ overflowWrap:"break-word" }}>
-                                {postInModal.content}
-                            </div>
-                            <div>
-                                {chosenEmoji ? (
-                                    <span>{chosenEmoji.emoji}</span>
-                                ) : (
-                                    <span>No emoji Chosen</span>
-                                )}
-                                <Picker onEmojiClick={onEmojiClick}/>
-                            </div>
+                                <div style={{overflowWrap: "break-word"}}>
+                                    {postInModal.content}
+                                </div>
+                                <div>
+                                    {postInModal.reacts ? Object.entries(JSON.parse(postInModal.reacts)).map(
+                                        (k) => <p>{k}</p>) : ''}
+                                </div>
+                                <div>
+                                    <button onClick={() => setShowPicker(true)}>React</button>
+                                    {showPicker ?
+                                        <Picker onEmojiClick={(e1, e2) =>
+                                            onEmojiClick(postInModal.id, e1, e2)}/> : ''}
+                                </div>
+
+                                <div>
+                                    {postInModal.comments ? Object.entries(JSON.parse(postInModal.comments)).map(
+                                        (k) => <p>{k}</p>) : ''}
+                                </div>
+                                <textarea onChange={(e) => setComment(e.target.value)}>
+                                </textarea>
+                                <button onClick={() => sendComment(postInModal.id)}>Send comment</button>
                             </Modal.Body>
                         </Modal>
                         {!posts || posts.map((post, index) => (
