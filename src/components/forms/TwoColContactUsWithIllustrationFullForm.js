@@ -22,12 +22,7 @@ const Image = styled.div(props => [
 const TextContent = tw.div`lg:py-8 text-center md:text-left`;
 
 const Subheading = tw(SubheadingBase)`text-center md:text-left`;
-<<<<<<< HEAD
-const Subheading2 = tw(SubheadingBase)`text-center lg:text-lg md:text-left ml-12 mt-10 text-orange-600`;
-const Subheading3 = tw(SubheadingBase)`text-center lg:text-lg md:text-left ml-12 mt-10 text-orange-600`;
-=======
 const Subheading2 = tw.span`text-center lg:text-lg md:text-left ml-10 mt-10 text-orange-600`;
->>>>>>> a834efb88279b52e2bfd08f62781bb9310fa1dc5
 const Heading = tw(SectionHeading)`mt-4 font-black text-left text-3xl sm:text-4xl lg:text-5xl text-center md:text-left leading-tight`;
 
 const Heading2 = tw(SectionHeading)`mt-4 font-black text-left text-3xl sm:text-4xl lg:text-5xl text-center leading-tight mx-auto`;
