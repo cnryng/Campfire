@@ -1,14 +1,11 @@
 import React from "react";
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
-import { Container as ContainerBase } from "components/misc/Layouts";
+import {Container as ContainerBase} from "components/misc/Layouts";
 import tw from "twin.macro";
 import styled from "styled-components";
-import { css } from "styled-components/macro"; //eslint-disable-line
 import illustration from "images/signup-illustration.jpg";
 import logo from "images/flamelogo.png";
-import googleIconImageSrc from "images/google-icon.png";
-import twitterIconImageSrc from "images/twitter-icon.png";
-import { ReactComponent as SignUpIcon } from "feather-icons/dist/icons/user-plus.svg";
+import {ReactComponent as SignUpIcon} from "feather-icons/dist/icons/user-plus.svg";
 import Header from "components/headers/lightCampfire.js";
 
 
@@ -56,6 +53,7 @@ const IllustrationImage = styled.div`
 `;
 
 export default ({
+<<<<<<< HEAD
   logoLinkUrl = "#",
   illustrationImageSrc = illustration,
   headingText = "Sign In To Campfire",
@@ -74,59 +72,43 @@ export default ({
   submitButtonText = "Sign In",
   SubmitButtonIcon = SignUpIcon,
 }) => (
+=======
+                    logoLinkUrl = "#",
+                    illustrationImageSrc = illustration,
+                    headingText = "Sign In To Campfire",
+                    submitButtonText = "Sign In",
+                    SubmitButtonIcon = SignUpIcon
+                }) => (
+>>>>>>> 6d0f17dcba84e3063f0b26b139664ff456868d3b
 
-  <AnimationRevealPage>
-    <Header />
-      <Content>
-        <MainContainer>
-          <LogoLink href={logoLinkUrl}>
-            <LogoImage src={logo} />
-          </LogoLink>
-          <MainContent>
-            <Heading>{headingText}</Heading>
-            <FormContainer>
-              {/*
-              <SocialButtonsContainer>
-                {socialButtons.map((socialButton, index) => (
-                  <SocialButton key={index} href={socialButton.url}>
-                    <span className="iconContainer">
-                      <img src={socialButton.iconImageSrc} className="icon" alt="" />
-                    </span>
-                    <span className="text">{socialButton.text}</span>
-                  </SocialButton>
-                ))}
-              </SocialButtonsContainer>
-              */}
-              <DividerTextContainer>
-                <DividerText>Sign In</DividerText>
-              </DividerTextContainer>
-              <Form>
-                <Input type="text" placeholder="Pen Name" />
-                <Input type="password" placeholder="Password" />
-                <SubmitButton type="submit">
-                  <SubmitButtonIcon className="icon" />
-                  <span className="text">{submitButtonText}</span>
-                </SubmitButton>
-                {/*
-                <p tw="mt-6 text-xs text-gray-600 text-center">
-                  I agree to abide by treact's{" "}
-                  <a href={tosUrl} tw="border-b border-gray-500 border-dotted">
-                    Terms of Service
-                  </a>{" "}
-                  and its{" "}
-                  <a href={privacyPolicyUrl} tw="border-b border-gray-500 border-dotted">
-                    Privacy Policy
-                  </a>
-                </p>
-                */}
-              </Form>
-            </FormContainer>
-          </MainContent>
-        </MainContainer>
+    <AnimationRevealPage>
+        <Header/>
+        <Content>
+            <MainContainer>
+                <LogoLink href={logoLinkUrl}>
+                    <LogoImage src={logo}/>
+                </LogoLink>
+                <MainContent>
+                    <Heading>{headingText}</Heading>
+                    <FormContainer>
+                        <DividerTextContainer>
+                            <DividerText>Sign In</DividerText>
+                        </DividerTextContainer>
+                        <Form>
+                            <Input type="text" placeholder="Pen Name"/>
+                            <Input type="password" placeholder="Password"/>
+                            <SubmitButton>
+                                <SubmitButtonIcon className="icon"/>
+                                <span className="text">{submitButtonText}</span>
+                            </SubmitButton>
+                        </Form>
+                    </FormContainer>
+                </MainContent>
+            </MainContainer>
 
-        <IllustrationContainer>
-          <IllustrationImage imageSrc={illustrationImageSrc} />
-        </IllustrationContainer>
-      </Content>
-  </AnimationRevealPage>
+            <IllustrationContainer>
+                <IllustrationImage imageSrc={illustrationImageSrc}/>
+            </IllustrationContainer>
+        </Content>
+    </AnimationRevealPage>
 );

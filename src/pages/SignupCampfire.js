@@ -1,14 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
-import { Container as ContainerBase } from "components/misc/Layouts";
+import {Container as ContainerBase} from "components/misc/Layouts";
 import tw from "twin.macro";
 import styled from "styled-components";
-import { css } from "styled-components/macro"; //eslint-disable-line
 import illustration from "images/signup-illustration.jpg";
 import logo from "images/flamelogo.png";
-import googleIconImageSrc from "images/google-icon.png";
-import twitterIconImageSrc from "images/twitter-icon.png";
-import { ReactComponent as SignUpIcon } from "feather-icons/dist/icons/user-plus.svg";
+import {ReactComponent as SignUpIcon} from "feather-icons/dist/icons/user-plus.svg";
 import Header from "components/headers/lightCampfire.js";
 
 
@@ -56,86 +53,66 @@ const IllustrationImage = styled.div`
 `;
 
 export default ({
-  logoLinkUrl = "#",
-  illustrationImageSrc = illustration,
-  headingText = "Sign Up For Campfire",
-  socialButtons = [
-    {
-      iconImageSrc: googleIconImageSrc,
-      text: "Sign Up With Google",
-      url: "https://google.com"
-    },
-    {
-      iconImageSrc: twitterIconImageSrc,
-      text: "Sign Up With Twitter",
-      url: "https://twitter.com"
-    }
-  ],
-  submitButtonText = "Sign Up",
-  SubmitButtonIcon = SignUpIcon,
-  tosUrl = "#",
-  privacyPolicyUrl = "#",
-  signInUrl = "/signIn"
-}) => (
+                    logoLinkUrl = "#",
+                    illustrationImageSrc = illustration,
+                    headingText = "Sign Up For Campfire",
+                    submitButtonText = "Sign Up",
+                    SubmitButtonIcon = SignUpIcon,
+                    signInUrl = "/signIn"
+                }) => {
+    let [username, setUsername] = useState("");
+    let [password, setPassword] = useState("");
+    let [message, setMessage] = useState("");
+    let signUp = () => {
+        fetch("https://harrynull.tech/campfire/api/user/register", {
+            method: "POST",
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({username: username, password: password})
+        }).then((r) => r.json()).then((resp) => {
+            console.log(resp);
+            if (!resp.success) setMessage(resp.reason);
+        });
+    };
 
-  <AnimationRevealPage>
-    <Header />
-      <Content>
-        <MainContainer>
-          <LogoLink href={logoLinkUrl}>
-            <LogoImage src={logo} />
-          </LogoLink>
-          <MainContent>
-            <Heading>{headingText}</Heading>
-            <FormContainer>
-              {/*
-              <SocialButtonsContainer>
-                {socialButtons.map((socialButton, index) => (
-                  <SocialButton key={index} href={socialButton.url}>
-                    <span className="iconContainer">
-                      <img src={socialButton.iconImageSrc} className="icon" alt="" />
-                    </span>
-                    <span className="text">{socialButton.text}</span>
-                  </SocialButton>
-                ))}
-              </SocialButtonsContainer>
-              */}
-              <DividerTextContainer>
-                <DividerText>Sign Up</DividerText>
-              </DividerTextContainer>
-              <Form>
-                <Input type="text" placeholder="Pen Name" />
-                <Input type="password" placeholder="Password" />
-                <SubmitButton type="submit">
-                  <SubmitButtonIcon className="icon" />
-                  <span className="text">{submitButtonText}</span>
-                </SubmitButton>
-                {/*
-                <p tw="mt-6 text-xs text-gray-600 text-center">
-                  I agree to abide by treact's{" "}
-                  <a href={tosUrl} tw="border-b border-gray-500 border-dotted">
-                    Terms of Service
-                  </a>{" "}
-                  and its{" "}
-                  <a href={privacyPolicyUrl} tw="border-b border-gray-500 border-dotted">
-                    Privacy Policy
-                  </a>
-                </p>
-                */}
-                <p tw="mt-8 text-sm text-gray-600 text-center">
-                  Already have an account?{" "}
-                  <a href={signInUrl} tw="border-b border-gray-500 border-dotted">
-                    Sign In
-                  </a>
-                </p>
-              </Form>
-            </FormContainer>
-          </MainContent>
-        </MainContainer>
+    return (
+        <AnimationRevealPage>
+            <Header/>
+            <Content>
+                <MainContainer>
+                    <LogoLink href={logoLinkUrl}>
+                        <LogoImage src={logo}/>
+                    </LogoLink>
+                    <MainContent>
+                        <Heading>{headingText}</Heading>
+                        <FormContainer>
+                            <DividerTextContainer>
+                                <DividerText>Sign Up</DividerText>
+                            </DividerTextContainer>
+                            <Form>
+                                <Input type="text" placeholder="Pen Name"
+                                       onChange={(e) => setUsername(e.target.value)}/>
+                                <Input type="password" placeholder="Password"
+                                       onChange={(e) => setPassword(e.target.value)}/>
+                                <SubmitButton onClick={signUp}>
+                                    <SubmitButtonIcon className="icon"/>
+                                    <span className="text">{submitButtonText}</span>
+                                </SubmitButton>
+                                {message}
+                                <p tw="mt-8 text-sm text-gray-600 text-center">
+                                    Already have an account?{" "}
+                                    <a href={signInUrl} tw="border-b border-gray-500 border-dotted">
+                                        Sign In
+                                    </a>
+                                </p>
+                            </Form>
+                        </FormContainer>
+                    </MainContent>
+                </MainContainer>
 
-        <IllustrationContainer>
-          <IllustrationImage imageSrc={illustrationImageSrc} />
-        </IllustrationContainer>
-      </Content>
-  </AnimationRevealPage>
-);
+                <IllustrationContainer>
+                    <IllustrationImage imageSrc={illustrationImageSrc}/>
+                </IllustrationContainer>
+            </Content>
+        </AnimationRevealPage>
+    );
+}
