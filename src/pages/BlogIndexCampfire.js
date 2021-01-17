@@ -9,7 +9,6 @@ import {SectionHeading} from "components/misc/Headings";
 import {PrimaryButton} from "components/misc/Buttons";
 import Picker from 'emoji-picker-react';
 import Modal from 'react-bootstrap/Modal'
-import { Editor } from "@tinymce/tinymce-react";
 
 const HeadingRow = tw.div`flex`;
 const Heading = tw(SectionHeading)`text-orange-600`;
@@ -93,17 +92,15 @@ export default () => {
                                 <Modal.Title>{postInModal.prompt}</Modal.Title>
                             </Modal.Header>
                             <Modal.Body>
-                                {postInModal.content}
-                                <div>
-                                <Editor apiKey="hbxjzn6kr4k780yz53nv0be9a27e2u9efbbdaqbomg7p3d58"
-                                init={{
-                                  plugins: "emoticons",
-                                  toolbar: "emoticons",
-                                  toolbar_location: "bottom",
-                                  menubar: false,
-                                }}/>
-
-                                </div>
+                            {postInModal.content}
+                            <div>
+                                {chosenEmoji ? (
+                                    <span>{chosenEmoji.emoji}</span>
+                                ) : (
+                                    <span>No emoji Chosen</span>
+                                )}
+                                <Picker onEmojiClick={onEmojiClick}/>;
+                            </div>
                             </Modal.Body>
                         </Modal>
                         {!posts || posts.map((post, index) => (
@@ -116,7 +113,7 @@ export default () => {
                                         <Author>{getName(post)}</Author>
                                         <CreationDate>{new Date(post.time * 1000).toLocaleTimeString()}</CreationDate>
                                         <Title>{post.prompt}</Title>
-                                        <Description>{post.content.substring(0,24) + ((post.content.length > 25) ? "..." : "")}</Description>
+                                        <Description>{post.content}</Description>
                                     </Info>
                                 </Post>
                             </PostContainer>
