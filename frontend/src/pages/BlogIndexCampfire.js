@@ -52,6 +52,7 @@ const RandomButton = tw(PrimaryButton)`mt-16 mr-5`;
 const TopButton = tw(PrimaryButton)`mt-16 mr-5`;
 const YourButton = tw(PrimaryButton)`mt-16 mr-5`;
 const Input = tw.textarea`w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 focus:outline-none focus:border-gray-400 focus:bg-white mt-5 first:mt-0`;
+const TitleDescription = tw.div`text-blue-900 text-xl font-medium mt-5`;
 const SubmitButton = styled.button`
   ${tw`mt-5 tracking-wide font-semibold bg-primary-700 text-gray-100 w-full py-4 rounded-lg hover:bg-primary-900 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none`}
   .icon {
@@ -125,9 +126,9 @@ export default () => {
                     <HeadingRow>
                         <Heading>Campfire Feed</Heading>
                     </HeadingRow>
-                    <Description>Talking around a fire is credited with advancing human culture 40,000 years ago.
+                    <TitleDescription>Talking around a fire is credited with advancing human culture 40,000 years ago.
                         It’s how our ancestors bonded, relaxed, and entertained each other. Now we can do the same -
-                        to share our individual stories and connect with each other.</Description>
+                        to share our individual stories and connect with each other.</TitleDescription>
                     <Posts>
                         <Modal show={show} onHide={handleClose}>
                             <Modal.Header closeButton>
