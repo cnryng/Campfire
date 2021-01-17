@@ -73,9 +73,6 @@ export default ({
   ],
   submitButtonText = "Sign In",
   SubmitButtonIcon = SignUpIcon,
-  tosUrl = "#",
-  privacyPolicyUrl = "#",
-  signInUrl = "#"
 }) => (
 
   <AnimationRevealPage>
