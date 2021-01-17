@@ -44,14 +44,14 @@ const Author = tw.div`uppercase text-primary-500 text-xs font-bold tracking-wide
 const CreationDate = tw.div`mt-4 uppercase text-gray-600 italic font-semibold text-xs`;
 const Title = tw.div`mt-1 font-black text-sm text-gray-600 group-hover:text-primary-500 transition duration-300`;
 const Description = tw.div``;
-const Entry = tw.div`text-primary-900 text-3xl font-bold leading-loose mx-2 italic`;
+const Entry = tw.div`text-primary-900 text-sm leading-loose mx-2`;
 
 const ButtonContainer = tw.div`flex justify-center`;
 const LoadMoreButton = tw(PrimaryButton)`mt-16 mx-auto`;
 const RandomButton = tw(PrimaryButton)`mt-16 mr-5`;
 const TopButton = tw(PrimaryButton)`mt-16 mr-5`;
 const YourButton = tw(PrimaryButton)`mt-16 mr-5`;
-const Input = tw.textarea`w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-2xl focus:outline-none focus:border-gray-400 focus:bg-white mt-5 first:mt-0`;
+const Input = tw.textarea`w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 focus:outline-none focus:border-gray-400 focus:bg-white mt-5 first:mt-0`;
 const SubmitButton = styled.button`
   ${tw`mt-5 tracking-wide font-semibold bg-primary-200 text-gray-100 w-full py-4 rounded-lg hover:bg-primary-900 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none`}
   .icon {
@@ -128,36 +128,27 @@ export default () => {
                     <Description>Talking around a fire is credited with advancing human culture 40,000 years ago.
                         It’s how our ancestors bonded, relaxed, and entertained each other. Now we can do the same -
                         to share our individual stories and connect with each other.</Description>
-
-                        <RandomButton type="submit">
-                          <span className="text">Shuffle Submissions</span>
-                        </RandomButton>
-                        <TopButton type="submit">
-                          <span className="text">Top Submissions</span>
-                        </TopButton>
-                        <YourButton type="submit">
-                          <span className="text">Your Submissions</span>
-                        </YourButton>
                     <Posts>
                         <Modal show={show} onHide={handleClose}>
                             <Modal.Header closeButton>
-                                <Modal.Title style={{color:"#dd6b20",fontWeight:"bold", fontSize:"1.5rem"}}>
+                                <Modal.Title>
                                     {postInModal.prompt}
                                 </Modal.Title>
                             </Modal.Header>
                             <Modal.Body>
                                 <Post>
-                                    <Entry style={{overflowWrap:'break-word'}}>
+                                    <Entry style={{overflowWrap: 'break-word'}}>
                                         {postInModal.content}
                                     </Entry>
                                 </Post>
-                                <Heading>Reactions</Heading>
-                                <div style={{display:"flex"}}>
+                                <Heading style={{fontSize: '1.5em'}}>Reactions</Heading>
+                                <div style={{display: "flex"}}>
                                     {postInModal.reacts ? Object.entries(JSON.parse(postInModal.reacts)).map(
-                                        (k) => <p>{k}</p>) : ''}
+                                        (k) => <p style={{paddingRight: "10px"}}>{k}</p>) : ''}
                                 </div>
                                 <div>
-                                    <SubmitButton onClick={() => setShowPicker(!showPicker)}>Send an Emoji</SubmitButton>
+                                    <SubmitButton onClick={() => setShowPicker(!showPicker)}>Send an
+                                        Emoji</SubmitButton>
                                     <div>
                                         {showPicker ?
                                             <Picker onEmojiClick={(e1, e2) =>
@@ -165,10 +156,14 @@ export default () => {
                                         }
                                     </div>
                                 </div>
-                                <Heading>Comments</Heading>
+                                <Heading style={{fontSize: '1.5em', paddingTop: "20px"}}>Comments</Heading>
                                 <div>
                                     {postInModal.comments ? Object.entries(JSON.parse(postInModal.comments)).map(
-                                        (k) => <Post>{String(k).substring(2)}</Post>) : ''}
+                                        (k) => (<p style={{
+                                            margin: "10px",
+                                            padding: "2px",
+                                            backgroundColor: "#F5F5F5"
+                                        }}>{k[1]}</p>)) : ''}
                                 </div>
                                 <Input onChange={(e) => setComment(e.target.value)}
                                        placeholder="Write a comment..."
@@ -189,7 +184,7 @@ export default () => {
                                         <Author>{getName(post)}</Author>
                                         <CreationDate>{new Date(post.time * 1000).toLocaleTimeString()}</CreationDate>
                                         <Title>{post.prompt}</Title>
-                                        <Description>{post.content.substring(0, 24) + ((post.content.length > 24) ? "..." : "")}</Description>
+                                        <Description>{post.content.substring(0, 50) + ((post.content.length > 50) ? "..." : "")}</Description>
                                     </Info>
                                 </Post>
                             </PostContainer>
