@@ -6,6 +6,7 @@ import styled from "styled-components";
 //eslint-disable-line
 import Header from "components/headers/lightCampfire.js";
 import night from "images/night.jpg";
+import Checkbox from "components/misc/Checkbox.js"
 
 const Container = tw(ContainerBase)
     `min-h-screen bg-primary-900 text-white font-medium flex justify-center -m-8`;
@@ -50,6 +51,7 @@ const IllustrationImage = styled.div`
   ${props => `background-image: url("${props.imageSrc}");`}
   ${tw`m-12 xl:m-16 w-full max-w-lg bg-contain bg-center bg-no-repeat`}
 `;
+
 
 var sectionStyle = {
     width: "100%",
@@ -104,6 +106,7 @@ export default () => {
                         <span className="text"> Submit </span>
                     </SubmitButton>
                     <div><h2>*500 Word Limit</h2></div>
+                    <Checkbox label=" Anonymous?"/>
                 </MainContent>
             </MainContainer>
         </Content>
