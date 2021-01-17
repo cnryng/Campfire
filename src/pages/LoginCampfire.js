@@ -80,7 +80,6 @@ export default ({
         });
     };
     return (
-
         <AnimationRevealPage>
             <Header/>
             <Content>
