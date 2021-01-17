@@ -63,6 +63,7 @@ export default ({
             else {
                 const cookies = new Cookies();
                 cookies.set('session', resp.session, {path: '/'});
+                cookies.set('penname', username, {path: '/'});
                 setMessage('');
                 history.push('/read');
             }
