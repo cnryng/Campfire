@@ -61,23 +61,23 @@ export default ({
                     <MainContent>
                         <Heading>{headingText}</Heading>
                         <LogoImage src={illustration}/>
-                        {penname ? <p>Welcome {penname}!</p> : <div>
-                            <Link tw="w-full" to="/signup">
-                                <SubmitButton type="submit">
-                                    <SubmitButtonIcon className="icon"/>
-                                    <span className="text">{SignUpButtonText}</span>
-                                </SubmitButton>
-                            </Link>
-
-                            <Link tw="w-full" to="/signin">
-                                <SubmitButton type="submit">
-                                    <SubmitButtonIcon className="icon"/>
-                                    <span className="text">{SignInButtonText}</span>
-                                </SubmitButton>
-                            </Link></div>
+                        {penname ? <p>Welcome {penname}!</p> : 
+                            <div style={{ width:'30vw'}}>
+                                <Link tw="w-full" to="/signup">
+                                    <SubmitButton type="submit">
+                                        <SubmitButtonIcon className="icon"/>
+                                        <span className="text">{SignUpButtonText}</span>
+                                    </SubmitButton>
+                                </Link>
+                                <Link tw="w-full" to="/signin">
+                                    <SubmitButton type="submit">
+                                        <SubmitButtonIcon className="icon"/>
+                                        <span className="text">{SignInButtonText}</span>
+                                    </SubmitButton>
+                                </Link>
+                            </div>
                         }
                     </MainContent>
-
                 </MainContainer>
                 <IllustrationContainer>
                     <IllustrationImage imageSrc={illustrationImageSrc}/>
