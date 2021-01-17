@@ -53,11 +53,15 @@ const YourButton = tw(PrimaryButton)`mt-10 mr-5`;
 export default () => {
     const [posts, setPosts] = useState(false);
     if (!posts) {
-        fetch("http://127.0.0.1:5000/list").then((r) => r.json()).then((resp) => {
+        fetch("https://harrynull.tech/campfire/api/list").then((r) => r.json()).then((resp) => {
             console.log(resp);
             setPosts(resp.posts)
         })
     }
+    let getName = (post) => {
+        if (post.anonymous) return "Anonymous";
+        else return post.poster_name;
+    };
     return (
         <AnimationRevealPage>
             <Header/>
@@ -74,7 +78,7 @@ export default () => {
                             <PostContainer key={index}>
                                 <Post className="group" as="a" href={post.url}>
                                     <Info>
-                                        <Author>{post.content}</Author>
+                                        <Author>{getName(post)}</Author>
                                         <CreationDate>{new Date(post.time).toLocaleTimeString()}</CreationDate>
                                         <Description>{post.content}</Description>
                                     </Info>

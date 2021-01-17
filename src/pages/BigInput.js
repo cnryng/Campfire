@@ -94,7 +94,7 @@ export default () => {
     const [content, setContent] = useState("");
 
     let submit = () => {
-        fetch("http://127.0.0.1:5000/post", {
+        fetch("https://harrynull.tech/campfire/api/post", {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({content: content})
