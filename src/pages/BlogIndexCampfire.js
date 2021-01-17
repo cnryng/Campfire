@@ -52,7 +52,7 @@ const YourButton = tw(PrimaryButton)`mt-16 mr-5`;
 export default () => {
     const [posts, setPosts] = useState(false);
     if (!posts) {
-        fetch("http://127.0.0.1:5000/list").then((r) => r.json()).then((resp) => {
+        fetch("https://harrynull.tech/campfire/api/list").then((r) => r.json()).then((resp) => {
             console.log(resp);
             setPosts(resp.posts)
         })
