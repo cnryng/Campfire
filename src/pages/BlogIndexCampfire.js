@@ -92,7 +92,9 @@ export default () => {
                                 <Modal.Title>{postInModal.prompt}</Modal.Title>
                             </Modal.Header>
                             <Modal.Body>
-                            {postInModal.content}
+                            <div style={{ overflowWrap:"break-word" }}>
+                                {postInModal.content}
+                            </div>
                             <div>
                                 {chosenEmoji ? (
                                     <span>{chosenEmoji.emoji}</span>
