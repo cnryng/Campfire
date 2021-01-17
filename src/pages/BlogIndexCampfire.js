@@ -54,7 +54,6 @@ export default () => {
     const [posts, setPosts] = useState(false);
     if (!posts) {
         fetch("https://harrynull.tech/campfire/api/list").then((r) => r.json()).then((resp) => {
-            console.log(resp);
             setPosts(resp.posts)
         })
     }
