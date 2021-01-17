@@ -124,7 +124,7 @@ export default ({
                 */}
 
                 <LogoImage src={illustration} />
-
+                
                 <Link tw="w-full" to="/signup">
                     <SubmitButton type="submit">
                         <SubmitButtonIcon className="icon"/>

@@ -122,7 +122,7 @@ export default () => {
                     <SubmitButton type="submit" onClick={submit}>
                         <span className="text"> Submit </span>
                     </SubmitButton>
-                    <div><h2>*1000 Character Limit</h2></div>
+                    <div><h2 style={{margin: "10px"}}>*1000 Character Limit</h2></div>
                     <Checkbox label=" Post as Anonymous?" checked={anonymous} onChange={() => {
                         setAnonymous(!anonymous)
                     }}/>
