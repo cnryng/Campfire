@@ -23,7 +23,11 @@ const Image = styled.div(props => [
 const TextContent = tw.div`lg:py-8 text-center md:text-left`;
 
 const Subheading = tw(SubheadingBase)`text-center md:text-left`;
+const Subheading2 = tw(SubheadingBase)`text-center md:text-left mt-10`;
+const Subheading3 = tw(SubheadingBase)`text-center md:text-left mt-10`;
 const Heading = tw(SectionHeading)`mt-4 font-black text-left text-3xl sm:text-4xl lg:text-5xl text-center md:text-left leading-tight`;
+
+const Heading2 = tw(SectionHeading)`mt-4 font-black text-left text-3xl sm:text-4xl lg:text-5xl text-center leading-tight mx-auto`;
 const Description = tw.p`mt-4 text-center md:text-left text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-100`
 
 const Form = tw.form`mt-8 md:mt-10 text-sm flex flex-col max-w-sm mx-auto md:mx-0`
@@ -36,9 +40,12 @@ const SubmitButton = tw(PrimaryButtonBase)`inline-block mt-8`
 
 export default ({
   subheading = "Profile",
+  subheading2 ="Total Number of Submissions",
+  subheading3 ="Total Number of Likes",
   heading = <>Talk at the campfire <span tw="text-primary-500">without compromising</span> your identity<wbr/></>,
+  heading2 = "Statistics🔎",
   description = "All of your works will be published anonymously using your pen name.",
-  submitButtonText = "Update",
+  submitButtonText = "Change Pen Name",
   formAction = "#",
   formMethod = "get",
   textOnLeft = true,
@@ -58,13 +65,19 @@ export default ({
             {description && <Description>{description}</Description>}
             <Form action={formAction} method={formMethod}>
               <Input type="text" name="username" placeholder="Pen Name" />
-              <Input type="text" name="subject" placeholder="Subject" />
-              <Textarea name="message" placeholder="Personal Description" />
               <SubmitButton type="submit">{submitButtonText}</SubmitButton>
             </Form>
           </TextContent>
         </TextColumn>
       </TwoColumn>
+
+      <Heading2>{heading2}</Heading2>
+        <TextColumn textOnLeft={textOnLeft}>
+          <TextContent>
+            {subheading2 && <Subheading2>{subheading2}</Subheading2>}
+            {subheading3 && <Subheading3>{subheading3}</Subheading3>}
+          </TextContent>
+        </TextColumn>
     </Container>
   );
 };
