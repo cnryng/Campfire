@@ -42,21 +42,12 @@ const IllustrationImage = styled.div`
 `;
 
 export default ({
-<<<<<<< HEAD
-  logoLinkUrl = "#",
-  illustrationImageSrc = illustration,
-  headingText = "Sign In To Campfire",
-  submitButtonText = "Sign In",
-  SubmitButtonIcon = SignUpIcon,
-}) => (
-=======
                     logoLinkUrl = "#",
                     illustrationImageSrc = illustration,
                     headingText = "Sign In To Campfire",
                     submitButtonText = "Sign In",
                     SubmitButtonIcon = SignUpIcon
                 }) => {
->>>>>>> 38b1e8ad32d3f4ded1318f91e1aaf1cbd1964b86
 
     let [username, setUsername] = useState("");
     let [password, setPassword] = useState("");

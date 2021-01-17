@@ -13,11 +13,8 @@
     "framer-motion": "^1.10.2",
     "react": "^16.13.1",
     "react-anchor-link-smooth-scroll": "^1.0.12",
-<<<<<<< HEAD
     "react-bootstrap-validation": "^0.1.11",
-=======
     "react-bootstrap": "^1.4.3",
->>>>>>> 38b1e8ad32d3f4ded1318f91e1aaf1cbd1964b86
     "react-dom": "^16.13.1",
     "react-google-login": "^5.2.2",
     "react-modal": "^3.12.1",

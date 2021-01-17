@@ -9,7 +9,6 @@ import {SectionHeading} from "components/misc/Headings";
 import {PrimaryButton} from "components/misc/Buttons";
 import Picker from 'emoji-picker-react';
 import Modal from 'react-bootstrap/Modal'
-import Button from 'react-bootstrap/Button'
 
 const HeadingRow = tw.div`flex`;
 const Heading = tw(SectionHeading)`text-orange-600`;
@@ -53,6 +52,7 @@ const YourButton = tw(PrimaryButton)`mt-16 mr-5`;
 
 export default () => {
     const [posts, setPosts] = useState(false);
+    const [postInModal, setPostInModal] = useState({});
     if (!posts) {
         fetch("https://harrynull.tech/campfire/api/list").then((r) => r.json()).then((resp) => {
             setPosts(resp.posts)
@@ -87,36 +87,26 @@ export default () => {
                         It’s how our ancestors bonded, relaxed, and entertained each other. Now we can do the same -
                         to share our individual stories and connect with each other.</Description>
                     <Posts>
+                        <Modal show={show} onHide={handleClose}>
+                            <Modal.Header closeButton>
+                                <Modal.Title>{postInModal.prompt}</Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body>{postInModal.content}</Modal.Body>
+                        </Modal>
                         {!posts || posts.map((post, index) => (
-                            <Modal>
-                                <PostContainer key={index}>
-                                    <Post className="group" as="a" href={post.url}>
-                                        <Button variant="primary" onClick={handleShow}>
-                                            Launch demo modal
-                                        </Button>
-                                        <Modal show={show} onHide={handleClose}>
-                                            <Modal.Header closeButton>
-                                                <Modal.Title>Modal heading</Modal.Title>
-                                            </Modal.Header>
-                                            <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-                                            <Modal.Footer>
-                                                <Button variant="secondary" onClick={handleClose}>
-                                                    Close
-                                                </Button>
-                                                <Button variant="primary" onClick={handleClose}>
-                                                    Save Changes
-                                                </Button>
-                                            </Modal.Footer>
-                                        </Modal>
-                                        <Info>
-                                            <Author>{getName(post)}</Author>
-                                            <CreationDate>{new Date(post.time * 1000).toLocaleTimeString()}</CreationDate>
-                                            <Title>{post.prompt}</Title>
-                                            <Description>{post.content}</Description>
-                                        </Info>
-                                    </Post>
-                                </PostContainer>
-                            </Modal>
+                            <PostContainer key={index}>
+                                <Post className="group" as="a" href={post.url} onClick={() => {
+                                    setPostInModal(post);
+                                    handleShow();
+                                }}>
+                                    <Info>
+                                        <Author>{getName(post)}</Author>
+                                        <CreationDate>{new Date(post.time * 1000).toLocaleTimeString()}</CreationDate>
+                                        <Title>{post.prompt}</Title>
+                                        <Description>{post.content}</Description>
+                                    </Info>
+                                </Post>
+                            </PostContainer>
                         ))}
                     </Posts>
                 </ContentWithPaddingXl>

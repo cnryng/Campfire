@@ -103,18 +103,12 @@ export default ({
                                     <SubmitButtonIcon className="icon"/>
                                     <span className="text">{submitButtonText}</span>
                                 </SubmitButton>
-<<<<<<< HEAD
-                                {message}
-                                <p tw="mt-8 text-sm text-gray-900 text-center">
-=======
-                                <ErrorMessage>{message}</ErrorMessage>
-                                <p tw="mt-8 text-sm text-gray-600 text-center">
->>>>>>> 38b1e8ad32d3f4ded1318f91e1aaf1cbd1964b86
-                                    Already have an account?{" "}
-                                    <a href={signInUrl} tw="border-b border-gray-100 border-dotted">
-                                        Sign In
-                                    </a>
-                                </p>
+                                <ErrorMessage>{message}</ErrorMessage><p tw="mt-8 text-sm text-gray-900 text-center">
+                                Already have an account?{" "}
+                                <a href={signInUrl} tw="border-b border-gray-100 border-dotted">
+                                    Sign In
+                                </a>
+                            </p>
                             </Form>
                         </FormContainer>
                     </MainContent>
