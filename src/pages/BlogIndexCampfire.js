@@ -7,7 +7,7 @@ import {css} from "styled-components/macro";
 import Header from "components/headers/lightCampfire.js";
 import {SectionHeading} from "components/misc/Headings";
 import {PrimaryButton} from "components/misc/Buttons";
-
+import Picker from 'emoji-picker-react';
 
 const HeadingRow = tw.div`flex`;
 const Heading = tw(SectionHeading)`text-orange-600`;
@@ -57,10 +57,18 @@ export default () => {
             setPosts(resp.posts)
         })
     }
+
     let getName = (post) => {
         if (post.anonymous) return "Anonymous";
         else return post.poster_name;
     };
+
+    const [chosenEmoji, setChosenEmoji] = useState(null);
+
+    const onEmojiClick = (event, emojiObject) => {
+        setChosenEmoji(emojiObject);
+    };
+
     return (
         <AnimationRevealPage>
             <Header/>
@@ -86,6 +94,14 @@ export default () => {
                         ))}
                     </Posts>
                 </ContentWithPaddingXl>
+                    <div>
+      {chosenEmoji ? (
+        <span>You chose: {chosenEmoji.emoji}</span>
+      ) : (
+        <span>No emoji Chosen</span>
+      )}
+      <Picker onEmojiClick={onEmojiClick} />
+    </div>
             </Container>
         </AnimationRevealPage>
     );
