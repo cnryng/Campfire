@@ -119,7 +119,7 @@ headingText = questions[Math.floor(Math.random() * questions.length)],
     headingText
   } < /Heading> <
   Input type = "text"
-  maxLength = "250"
+  maxLength = "500"
   placeholder = "Write here..." / >
   <SubmitButton type = "submit" >
   <span className = "text" > {

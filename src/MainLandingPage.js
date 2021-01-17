@@ -421,12 +421,16 @@ export default ({
 
                 <LogoImage src={illustration} />
 
-                {/*
+                
                 <SubmitButton type="submit">
                   <SubmitButtonIcon className="icon" />
                   <span className="text">{SignUpButtonText}</span>
                 </SubmitButton>
-                */}
+                
+                <SubmitButton type="submit">
+                    <SubmitButtonIcon className="icon" />
+                    <span className="text">{SignInButtonText}</span>
+                </SubmitButton>
                 {/*
                 <GoogleLogin
                     clientId={clientId}
@@ -441,9 +445,9 @@ export default ({
                     onFailure={responseGoogle}
                     cookiePolicy={'single_host_origin'}
                     isSignedIn={true}
-                />
-                */}
-                <LoginGoogle />
+                />*/}
+                
+                {/*<LoginGoogle />*/}
                 </MainContent>
 
             </MainContainer>
