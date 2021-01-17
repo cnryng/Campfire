@@ -8,6 +8,7 @@ import Header from "components/headers/lightCampfire.js";
 import {SectionHeading} from "components/misc/Headings";
 import {PrimaryButton} from "components/misc/Buttons";
 import Picker from 'emoji-picker-react';
+import Modal from 'react-bootstrap/Modal';
 
 const HeadingRow = tw.div`flex`;
 const Heading = tw(SectionHeading)`text-orange-600`;
@@ -81,6 +82,7 @@ export default () => {
                         to share our individual stories and connect with each other.</Description>
                     <Posts>
                         {!posts || posts.map((post, index) => (
+                          <Modal>
                             <PostContainer key={index}>
                                 <Post className="group" as="a" href={post.url}>
                                     <Info>
@@ -90,6 +92,7 @@ export default () => {
                                     </Info>
                                 </Post>
                             </PostContainer>
+                          </Modal>
                         ))}
                     </Posts>
                 </ContentWithPaddingXl>

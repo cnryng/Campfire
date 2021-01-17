@@ -53,33 +53,12 @@ const IllustrationImage = styled.div`
 `;
 
 export default ({
-<<<<<<< HEAD
   logoLinkUrl = "#",
   illustrationImageSrc = illustration,
   headingText = "Sign In To Campfire",
-  socialButtons = [
-    {
-      iconImageSrc: googleIconImageSrc,
-      text: "Sign Up With Google",
-      url: "https://google.com"
-    },
-    {
-      iconImageSrc: twitterIconImageSrc,
-      text: "Sign Up With Twitter",
-      url: "https://twitter.com"
-    }
-  ],
   submitButtonText = "Sign In",
   SubmitButtonIcon = SignUpIcon,
 }) => (
-=======
-                    logoLinkUrl = "#",
-                    illustrationImageSrc = illustration,
-                    headingText = "Sign In To Campfire",
-                    submitButtonText = "Sign In",
-                    SubmitButtonIcon = SignUpIcon
-                }) => (
->>>>>>> 6d0f17dcba84e3063f0b26b139664ff456868d3b
 
     <AnimationRevealPage>
         <Header/>
