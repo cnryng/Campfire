@@ -50,6 +50,16 @@ const LoadMoreButton = tw(PrimaryButton)`mt-16 mx-auto`;
 const RandomButton = tw(PrimaryButton)`mt-16 mr-5`;
 const TopButton = tw(PrimaryButton)`mt-16 mr-5`;
 const YourButton = tw(PrimaryButton)`mt-16 mr-5`;
+const Input = tw.textarea`w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-2xl focus:outline-none focus:border-gray-400 focus:bg-white mt-5 first:mt-0`;
+const SubmitButton = styled.button`
+  ${tw`mt-5 tracking-wide font-semibold bg-primary-500 text-gray-100 w-full py-4 rounded-lg hover:bg-primary-900 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none`}
+  .icon {
+    ${tw`w-6 h-6 -ml-2`}
+  }
+  .text {
+    ${tw`ml-3`}
+  }
+`;
 
 export default () => {
     const [posts, setPosts] = useState(false);
@@ -118,7 +128,7 @@ export default () => {
                                         (k) => <p>{k}</p>) : ''}
                                 </div>
                                 <div>
-                                    <button onClick={() => setShowPicker(true)}>React</button>
+                                    <SubmitButton onClick={() => setShowPicker(!showPicker)}>Send an Emoji</SubmitButton>
                                     {showPicker ?
                                         <Picker onEmojiClick={(e1, e2) =>
                                             onEmojiClick(postInModal.id, e1, e2)}/> : ''}
@@ -128,9 +138,12 @@ export default () => {
                                     {postInModal.comments ? Object.entries(JSON.parse(postInModal.comments)).map(
                                         (k) => <p>{k}</p>) : ''}
                                 </div>
-                                <textarea onChange={(e) => setComment(e.target.value)}>
-                                </textarea>
-                                <button onClick={() => sendComment(postInModal.id)}>Send comment</button>
+                                <Input onChange={(e) => setComment(e.target.value)}
+                                       placeholder="Write a comment..."
+                                >
+                                </Input>
+
+                                <SubmitButton onClick={() => sendComment(postInModal.id)}>Send comment</SubmitButton>
                             </Modal.Body>
                         </Modal>
                         {!posts || posts.map((post, index) => (
