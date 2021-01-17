@@ -23,9 +23,9 @@ const TextContent = tw.div`lg:py-8 text-center md:text-left`;
 
 const Subheading = tw(SubheadingBase)`text-center md:text-left`;
 const Subheading2 = tw.span`text-center lg:text-lg md:text-left ml-10 mt-10 text-orange-600`;
-const Heading = tw(SectionHeading)`mt-4 font-black text-left text-3xl sm:text-4xl lg:text-5xl text-center md:text-left leading-tight`;
+const Heading = tw(SectionHeading)`mt-4 text-blue-900 font-black text-left text-3xl sm:text-4xl lg:text-5xl text-center md:text-left leading-tight`;
 
-const Heading2 = tw(SectionHeading)`mt-4 font-black text-left text-3xl sm:text-4xl lg:text-5xl text-center leading-tight mx-auto`;
+const Heading2 = tw(SectionHeading)`mt-4 font-black text-left text-3xl sm:text-4xl lg:text-5xl text-center leading-tight mx-auto mt-12`;
 const Description = tw.p`mt-4 text-center md:text-left text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-100`
 const ErrorMessage = tw.p`text-red-800`;
 
@@ -39,10 +39,7 @@ const SubmitButton = tw(PrimaryButtonBase)`inline-block mt-8`
 
 export default ({
                     subheading = "Profile",
-                    heading = <>Talk at the campfire <span tw="text-primary-500">without compromising</span> your
-                        identity
-                        <wbr/>
-                    </>,
+                    heading = <>Talk at the campfire <span tw="text-primary-500">without compromising</span> your identity<wbr/></>,
                     description = "All of your works will be published anonymously using your pen name.",
                     submitButtonText = "Change Pen Name",
                     formAction = "#",

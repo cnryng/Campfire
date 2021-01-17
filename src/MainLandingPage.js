@@ -60,7 +60,6 @@ export default ({
                 <MainContainer>
                     <MainContent>
                         <Heading>{headingText}</Heading>
-
                         <LogoImage src={illustration}/>
                         {penname ? <p>Welcome {penname}!</p> : <div>
                             <Link tw="w-full" to="/signup">
