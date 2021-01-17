@@ -44,7 +44,7 @@ const Author = tw.div`uppercase text-primary-500 text-xs font-bold tracking-wide
 const CreationDate = tw.div`mt-4 uppercase text-gray-600 italic font-semibold text-xs`;
 const Title = tw.div`mt-1 font-black text-sm text-gray-600 group-hover:text-primary-500 transition duration-300`;
 const Description = tw.div``;
-const Entry = tw.div`text-primary-500 text-xl font-bold tracking-wide leading-loose`;
+const Entry = tw.div`text-primary-900 text-3xl font-bold leading-loose mx-2 italic`;
 
 const ButtonContainer = tw.div`flex justify-center`;
 const LoadMoreButton = tw(PrimaryButton)`mt-16 mx-auto`;
@@ -53,7 +53,7 @@ const TopButton = tw(PrimaryButton)`mt-16 mr-5`;
 const YourButton = tw(PrimaryButton)`mt-16 mr-5`;
 const Input = tw.textarea`w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-2xl focus:outline-none focus:border-gray-400 focus:bg-white mt-5 first:mt-0`;
 const SubmitButton = styled.button`
-  ${tw`mt-5 tracking-wide font-semibold bg-primary-500 text-gray-100 w-full py-4 rounded-lg hover:bg-primary-900 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none`}
+  ${tw`mt-5 tracking-wide font-semibold bg-primary-200 text-gray-100 w-full py-4 rounded-lg hover:bg-primary-900 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none`}
   .icon {
     ${tw`w-6 h-6 -ml-2`}
   }
@@ -128,14 +128,16 @@ export default () => {
                     <Posts>
                         <Modal show={show} onHide={handleClose}>
                             <Modal.Header closeButton>
-                                <Modal.Title style={{color:"#dd6b20",fontWeight:"bold"}}>
+                                <Modal.Title style={{color:"#dd6b20",fontWeight:"bold", fontSize:"1.5rem"}}>
                                     {postInModal.prompt}
                                 </Modal.Title>
                             </Modal.Header>
                             <Modal.Body>
-                                <Entry style={{overflowWrap:'break-word'}}>
-                                    {postInModal.content}
-                                </Entry>
+                                <Post>
+                                    <Entry style={{overflowWrap:'break-word'}}>
+                                        {postInModal.content}
+                                    </Entry>
+                                </Post>
                                 <div>
                                     {postInModal.reacts ? Object.entries(JSON.parse(postInModal.reacts)).map(
                                         (k) => <p>{k}</p>) : ''}
