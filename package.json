@@ -6,13 +6,18 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "bootstrap": "^4.5.3",
     "emoji-picker-react": "^3.4.0",
     "feather-icons": "^4.26.0",
     "fix": "0.0.6",
     "framer-motion": "^1.10.2",
     "react": "^16.13.1",
     "react-anchor-link-smooth-scroll": "^1.0.12",
+<<<<<<< HEAD
     "react-bootstrap-validation": "^0.1.11",
+=======
+    "react-bootstrap": "^1.4.3",
+>>>>>>> 38b1e8ad32d3f4ded1318f91e1aaf1cbd1964b86
     "react-dom": "^16.13.1",
     "react-google-login": "^5.2.2",
     "react-modal": "^3.12.1",
@@ -25,6 +30,7 @@
     "styled-components": "^5.0.1",
     "tailwindcss": "^1.2.0",
     "twin.macro": "^1.0.0-alpha.7",
+    "universal-cookie": "^4.0.4",
     "use-in-view": "^1.0.15"
   },
   "scripts": {
