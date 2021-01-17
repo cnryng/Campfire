@@ -321,7 +321,7 @@ const MainContainer = tw.div`lg:w-1/2 xl:w-5/12 p-6 sm:p-12`;
 const LogoLink = tw.a``;
 const LogoImage = tw.img`lg:w-10/12 m-5 mx-auto`;
 const MainContent = tw.div`mt-12 flex flex-col items-center`;
-const Heading = tw.h1`text-2xl xl:text-3xl font-extrabold text-orange-600 `;
+const Heading = tw.h1`text-3xl xl:text-4xl font-extrabold text-orange-600 `;
 const FormContainer = tw.div`w-full flex-1 mt-8`;
 
 const DividerTextContainer = tw.div`my-12 border-b text-center relative`;

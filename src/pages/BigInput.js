@@ -27,6 +27,10 @@ const MainContent = tw.div `mt-12 flex flex-col items-center`;
 const Heading = tw.h1 `text-2xl xl:text-3xl font-extrabold text-orange-600`;
 const FormContainer = tw.div `w-full flex-1 mt-8`;
 
+import CheckIcon from '@material-ui/icons/Check';
+import ToggleButton from '@material-ui/lab/ToggleButton';
+import StandaloneToggleButton from "pages/toggle.js"
+
 const SocialButtonsContainer = tw.div `flex flex-col items-center`;
 const SocialButton = styled.a `
   ${tw`w-full max-w-xs font-semibold rounded-lg py-3 border text-gray-900 bg-gray-100 hocus:bg-gray-200 hocus:border-gray-400 flex items-center justify-center transition-all duration-300 focus:outline-none focus:shadow-outline text-sm mt-5 first:mt-0`}
@@ -108,6 +112,7 @@ headingText = questions[Math.floor(Math.random() * questions.length)],
   signInUrl = "#"
 }) => (
 
+  <ToggleButton>Post as Anonymous</ToggleButton>
   <AnimationRevealPage >
   <Header / >
   <Content >
@@ -118,7 +123,7 @@ headingText = questions[Math.floor(Math.random() * questions.length)],
     headingText
   } < /Heading> <
   Input type = "text"
-  maxLength = "250"
+  maxLength = "500"
   placeholder = "Write here..." / >
   <SubmitButton type = "submit" >
   <span className = "text" > {
