@@ -3,11 +3,11 @@ import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import {Container, ContentWithPaddingXl} from "components/misc/Layouts";
 import tw from "twin.macro";
 import styled from "styled-components";
+
 import {css} from "styled-components/macro";
 import Header from "components/headers/lightCampfire.js";
 import {SectionHeading} from "components/misc/Headings";
 import {PrimaryButton} from "components/misc/Buttons";
-
 
 const HeadingRow = tw.div`flex`;
 const Heading = tw(SectionHeading)`text-orange-600`;
@@ -40,15 +40,15 @@ const Image = styled.div`
 const Info = tw.div`p-8 border-2 border-t-0 rounded-lg rounded-t-none`;
 const Author = tw.div`uppercase text-primary-500 text-xs font-bold tracking-widest leading-loose after:content after:block after:border-b-2 after:border-primary-500 after:w-8`;
 const CreationDate = tw.div`mt-4 uppercase text-gray-600 italic font-semibold text-xs`;
-const Title = tw.div`mt-1 font-black text-sm text-gray-900 group-hover:text-primary-500 transition duration-300`;
-const Description = tw.div``;
-const Prompt = tw.div`text-gray-900 italic`;
+
+const Title = tw.div`mt-1 font-black text-2xl text-gray-900 group-hover:text-primary-500 transition duration-300`;
+const Description = tw.div`text-xl`;
 
 const ButtonContainer = tw.div`flex justify-center`;
 const LoadMoreButton = tw(PrimaryButton)`mt-16 mx-auto`;
-const RandomButton = tw(PrimaryButton)`mt-16 mr-5`;
-const TopButton = tw(PrimaryButton)`mt-16 mr-5`;
-const YourButton = tw(PrimaryButton)`mt-16 mr-5`;
+const RandomButton = tw(PrimaryButton)`mt-10 mr-5`;
+const TopButton = tw(PrimaryButton)`mt-10 mr-5`;
+const YourButton = tw(PrimaryButton)`mt-10 mr-5`;
 
 export default () => {
     const [posts, setPosts] = useState(false);
