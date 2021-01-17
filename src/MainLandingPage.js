@@ -1,20 +1,14 @@
 import React from "react";
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
-import { Container as ContainerBase } from "components/misc/Layouts";
+import {Container as ContainerBase} from "components/misc/Layouts";
 import tw from "twin.macro";
 import styled from "styled-components";
-import { css } from "styled-components/macro"; //eslint-disable-line
 import illustration from "images/features.png";
-import logo from "images/flamelogo.png";
 import campfireillustrationSrc from "images/campfire-people.jpg";
-import googleIconImageSrc from "images/google-icon.png";
-import twitterIconImageSrc from "images/twitter-icon.png";
-import { ReactComponent as SignUpIcon } from "feather-icons/dist/icons/user-plus.svg";
+import {ReactComponent as SignUpIcon} from "feather-icons/dist/icons/user-plus.svg";
 import Header from "components/headers/lightCampfire.js";
-
-import { GoogleLogin } from 'react-google-login';
-import LoginGoogle from 'LoginGoogle.js';
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
+import Cookies from "universal-cookie";
 
 
 const Container = tw(ContainerBase)`min-h-screen bg-primary-900 text-white font-medium flex justify-center -m-8`;
@@ -46,121 +40,49 @@ const IllustrationImage = styled.div`
   ${tw`m-12 xl:m-16 w-full max-w-lg bg-contain bg-center bg-no-repeat`}
 `;
 
-const clientId = '42584847096-0l1ab2ofqql8qh5laiokvgkmhboot6t2.apps.googleusercontent.com';
-const responseGoogle = (response) => {
-  console.log(response);
-}
-
-
 
 export default ({
-                    logoLinkUrl = "#",
                     illustrationImageSrc = campfireillustrationSrc,
                     headingText = "Share your thoughts just like you would at a campfire.",
-                    socialButtons = [
-                        {
-                            iconImageSrc: googleIconImageSrc,
-                            text: "Sign Up With Google",
-                            url: "https://google.com"
-                        },
-                        {
-                            iconImageSrc: twitterIconImageSrc,
-                            text: "Sign Up With Twitter",
-                            url: "https://twitter.com"
-                        }
-                    ],
                     SignUpButtonText = "Sign Up",
                     SignInButtonText = "Sign In",
-                    SubmitButtonIcon = SignUpIcon,
-                    tosUrl = "#",
-                    privacyPolicyUrl = "#",
-                    signInUrl = "#"
-                }) => (
+                    SubmitButtonIcon = SignUpIcon
+                }) => {
 
-    <AnimationRevealPage>
-        <Header />
-        <Content>
-            <MainContainer>
-                <MainContent>
-                    <Heading>{headingText}</Heading>
-                    {/*<FormContainer>*/}
-                    {/*
-              <SocialButtonsContainer>
-                {socialButtons.map((socialButton, index) => (
-                  <SocialButton key={index} href={socialButton.url}>
-                    <span className="iconContainer">
-                      <img src={socialButton.iconImageSrc} className="icon" alt="" />
-                    </span>
-                    <span className="text">{socialButton.text}</span>
-                  </SocialButton>
-                ))}
-              </SocialButtonsContainer>
-              */}
-                    {/*<DividerTextContainer>
-                            <DividerText>something</DividerText>
-                        </DividerTextContainer>
-                        <Form>
-                            <Input type="text" placeholder="Name" />
-                            <Input type="text" placeholder="Pen Name" />
-                            <Input type="number" placeholder="Age" />
-                            <Input type="password" placeholder="Password" />
-                            <Input type="email" placeholder="Email" />
-                            <Input type="password" placeholder="Password" />
-                            <SubmitButton type="submit">
-                                <SubmitButtonIcon className="icon" />
-                                <span className="text">{submitButtonText}</span>
-                            </SubmitButton>*/}
-                    {/*
-                <p tw="mt-6 text-xs text-gray-600 text-center">
-                  I agree to abide by treact's{" "}
-                  <a href={tosUrl} tw="border-b border-gray-500 border-dotted">
-                    Terms of Service
-                  </a>{" "}
-                  and its{" "}
-                  <a href={privacyPolicyUrl} tw="border-b border-gray-500 border-dotted">
-                    Privacy Policy
-                  </a>
-                </p>
-                */}
 
-                <LogoImage src={illustration} />
-                
-                <Link tw="w-full" to="/signup">
-                    <SubmitButton type="submit">
-                        <SubmitButtonIcon className="icon"/>
-                        <span className="text">{SignUpButtonText}</span>
-                    </SubmitButton>
-                </Link>
+    const penname = new Cookies().get("penname");
 
-                <Link tw="w-full" to="/signin">
-                    <SubmitButton type="submit">
-                        <SubmitButtonIcon className="icon" />
-                        <span className="text">{SignInButtonText}</span>
-                    </SubmitButton>
-                </Link>
-                {/*
-                <GoogleLogin
-                    clientId={clientId}
-                    render={renderProps => (
-                        <SubmitButton type="submit" onClick={renderProps.onClick} disabled={renderProps.disabled}>
-                          <SubmitButtonIcon className="icon" />
-                          <span className="text">{SignInButtonText}</span>
-                        </SubmitButton>
-                    )}
-                    buttonText="Login"
-                    onSuccess={responseGoogle}
-                    onFailure={responseGoogle}
-                    cookiePolicy={'single_host_origin'}
-                    isSignedIn={true}
-                />*/}
+    return (
 
-                {/*<LoginGoogle />*/}
-                </MainContent>
+        <AnimationRevealPage>
+            <Header/>
+            <Content>
+                <MainContainer>
+                    <MainContent>
+                        <Heading>{headingText}</Heading>
+                        <LogoImage src={illustration}/>
+                        {penname ? <p>Welcome {penname}!</p> : <div>
+                            <Link tw="w-full" to="/signup">
+                                <SubmitButton type="submit">
+                                    <SubmitButtonIcon className="icon"/>
+                                    <span className="text">{SignUpButtonText}</span>
+                                </SubmitButton>
+                            </Link>
 
-            </MainContainer>
-            <IllustrationContainer>
-                <IllustrationImage imageSrc={illustrationImageSrc} />
-            </IllustrationContainer>
-        </Content>
-    </AnimationRevealPage>
-);
+                            <Link tw="w-full" to="/signin">
+                                <SubmitButton type="submit">
+                                    <SubmitButtonIcon className="icon"/>
+                                    <span className="text">{SignInButtonText}</span>
+                                </SubmitButton>
+                            </Link></div>
+                        }
+                    </MainContent>
+
+                </MainContainer>
+                <IllustrationContainer>
+                    <IllustrationImage imageSrc={illustrationImageSrc}/>
+                </IllustrationContainer>
+            </Content>
+        </AnimationRevealPage>
+    );
+}
