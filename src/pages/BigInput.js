@@ -43,7 +43,7 @@ const SocialButton = styled.a `
 
 const DividerTextContainer = tw.div `my-12 border-b text-center relative`;
 const DividerText = tw.div `leading-none px-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform -translate-y-1/2 absolute inset-x-0 top-1/2 bg-transparent`;
-
+const Description = tw`text-sm mt-3 leading-loose text-gray-600 font-medium`
 const Form = tw.form `mx-auto max-w-xs`;
 const Input = tw.textarea `w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-2xl focus:outline-none focus:border-gray-400 focus:bg-white mt-5 first:mt-0`;
 const SubmitButton = styled.button `
@@ -101,6 +101,7 @@ headingText = questions[Math.floor(Math.random() * questions.length)],
       url: "https://twitter.com"
     }
   ],
+  wordlimit = "500 Word Limit",
   submitButtonText = "Submit",
   SubmitButtonIcon = SignUpIcon,
   tosUrl = "#",
@@ -125,9 +126,9 @@ headingText = questions[Math.floor(Math.random() * questions.length)],
     submitButtonText
   } < /span>
   </SubmitButton>
-  <span className = "text"> {
-    "500 Word Limit"
-  } < /span>
+  <div className="m-4">
+  <h2> 500 Word Limit </h2>
+  </div>
   </MainContent>
   </MainContainer>
   </Content>
