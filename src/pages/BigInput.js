@@ -125,8 +125,8 @@ headingText = questions[Math.floor(Math.random() * questions.length)],
     submitButtonText
   } < /span>
   </SubmitButton>
-  <div className="m-4">
-  <h2>*500 Word Limit </h2>
+  <div>
+  <h2 >*500 Word Limit </h2>
   </div>
   </MainContent>
   </MainContainer>
