@@ -10,7 +10,7 @@ import { SectionHeading } from "components/misc/Headings";
 import { PrimaryButton } from "components/misc/Buttons";
 
 const HeadingRow = tw.div`flex`;
-const Heading = tw(SectionHeading)`text-gray-900`;
+const Heading = tw(SectionHeading)`text-orange-600`;
 const Posts = tw.div`mt-6 sm:-mr-8 flex flex-wrap`;
 const PostContainer = styled.div`
   ${tw`mt-10 w-full sm:w-1/2 lg:w-1/3 sm:pr-8`}
@@ -101,11 +101,12 @@ export default ({
           <HeadingRow>
             <Heading>{headingText}</Heading>
           </HeadingRow>
-          <h2>{description}</h2>
-          <ButtonContainer>
+          <Description>{description}</Description>
+
+          <ButtonContainer >
           <TopButton onClick={onLoadMoreClick}>Top Submissions</TopButton>
         </ButtonContainer>
-        <ButtonContainer className="float-right">
+        <ButtonContainer>
         <RandomButton onClick={onLoadMoreClick}>Random Submissions</RandomButton>
       </ButtonContainer>
           <Posts>

@@ -434,7 +434,7 @@ export default ({
                         <SubmitButton type="submit" onClick={renderProps.onClick} disabled={renderProps.disabled}>
                           <SubmitButtonIcon className="icon" />
                           <span className="text">{SignInButtonText}</span>
-                        </SubmitButton>          
+                        </SubmitButton>
                     )}
                     buttonText="Login"
                     onSuccess={responseGoogle}

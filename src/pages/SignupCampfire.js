@@ -4,7 +4,7 @@ import { Container as ContainerBase } from "components/misc/Layouts";
 import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
-import illustration from "images/signup-illustration.svg";
+import illustration from "images/signup-illustration.jpg";
 import logo from "images/logo.svg";
 import googleIconImageSrc from "images/google-icon.png";
 import twitterIconImageSrc from "images/twitter-icon.png";
@@ -54,7 +54,6 @@ const IllustrationImage = styled.div`
   ${props => `background-image: url("${props.imageSrc}");`}
   ${tw`m-12 xl:m-16 w-full max-w-lg bg-contain bg-center bg-no-repeat`}
 `;
-
 
 export default ({
   logoLinkUrl = "#",
