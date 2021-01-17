@@ -94,14 +94,14 @@ export default () => {
                         ))}
                     </Posts>
                 </ContentWithPaddingXl>
-                    <div>
-      {chosenEmoji ? (
-        <span>You chose: {chosenEmoji.emoji}</span>
-      ) : (
-        <span>No emoji Chosen</span>
-      )}
-      <Picker onEmojiClick={onEmojiClick} />
-    </div>
+                <div>
+                    {chosenEmoji ? (
+                        <span>You chose: {chosenEmoji.emoji}</span>
+                    ) : (
+                        <span>No emoji Chosen</span>
+                    )}
+                    <Picker onEmojiClick={onEmojiClick} />
+                </div>
             </Container>
         </AnimationRevealPage>
     );
