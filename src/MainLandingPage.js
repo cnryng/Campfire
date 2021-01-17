@@ -311,7 +311,13 @@ import googleIconImageSrc from "images/google-icon.png";
 import twitterIconImageSrc from "images/twitter-icon.png";
 import { ReactComponent as SignUpIcon } from "feather-icons/dist/icons/user-plus.svg";
 import Header from "components/headers/lightCampfire.js";
+<<<<<<< HEAD
 import { useHistory } from "react-router-dom";
+=======
+
+import { GoogleLogin } from 'react-google-login';
+import LoginGoogle from 'LoginGoogle.js';
+>>>>>>> 49755d755ed566962f33b8dda61d0b21149a2221
 
 const Container = tw(ContainerBase)`min-h-screen bg-primary-900 text-white font-medium flex justify-center -m-8`;
 const Content = tw.div`max-w-screen-2xl m-0 sm:mx-20 sm:my-16 bg-white text-gray-900 shadow sm:rounded-lg flex justify-center flex-1`;
@@ -342,6 +348,11 @@ const IllustrationImage = styled.div`
   ${tw`m-12 xl:m-16 w-full max-w-lg bg-contain bg-center bg-no-repeat`}
 `;
 
+const clientId = '42584847096-0l1ab2ofqql8qh5laiokvgkmhboot6t2.apps.googleusercontent.com';
+const responseGoogle = (response) => {
+  console.log(response);
+}
+
 export default ({
                     logoLinkUrl = "#",
                     illustrationImageSrc = campfireillustrationSrc,
@@ -359,7 +370,7 @@ export default ({
                         }
                     ],
                     SignUpButtonText = "Sign Up",
-                    SignInButtonText = "Sign In",
+                    SignInButtonText = "Sign In with Google",
                     SubmitButtonIcon = SignUpIcon,
                     tosUrl = "#",
                     privacyPolicyUrl = "#",
@@ -412,14 +423,30 @@ export default ({
                 </p>
                 */}
                 <LogoImage src={illustration} />
-                <SubmitButton href="/SignUp" type="submit">
+
+                {/*
+                <SubmitButton type="submit">
                   <SubmitButtonIcon className="icon" />
                   <span className="text">{SignUpButtonText}</span>
                 </SubmitButton>
-                <SubmitButton href="/SignUp" type="submit">
-                  <SubmitButtonIcon className="icon" />
-                  <span className="text">{SignInButtonText}</span>
-                </SubmitButton>
+                */}
+
+                <GoogleLogin
+                    clientId={clientId}
+                    render={renderProps => (
+                        <SubmitButton type="submit" onClick={renderProps.onClick} disabled={renderProps.disabled}>
+                          <SubmitButtonIcon className="icon" />
+                          <span className="text">{SignInButtonText}</span>
+                        </SubmitButton>
+                    )}
+                    buttonText="Login"
+                    onSuccess={responseGoogle}
+                    onFailure={responseGoogle}
+                    cookiePolicy={'single_host_origin'}
+                    isSignedIn={true}
+                />
+
+                {/*<LoginGoogle />*/}
                 </MainContent>
 
             </MainContainer>
