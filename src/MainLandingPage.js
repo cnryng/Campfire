@@ -418,6 +418,7 @@ export default ({
                   </a>
                 </p>
                 */}
+
                 <LogoImage src={illustration} />
 
                 {/*
@@ -426,7 +427,7 @@ export default ({
                   <span className="text">{SignUpButtonText}</span>
                 </SubmitButton>
                 */}
-
+                {/*
                 <GoogleLogin
                     clientId={clientId}
                     render={renderProps => (
@@ -441,12 +442,11 @@ export default ({
                     cookiePolicy={'single_host_origin'}
                     isSignedIn={true}
                 />
-
-                {/*<LoginGoogle />*/}
+                */}
+                <LoginGoogle />
                 </MainContent>
 
             </MainContainer>
-
             <IllustrationContainer>
                 <IllustrationImage imageSrc={illustrationImageSrc} />
             </IllustrationContainer>
