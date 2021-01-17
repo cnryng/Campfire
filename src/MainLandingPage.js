@@ -370,7 +370,7 @@ export default ({
                         }
                     ],
                     SignUpButtonText = "Sign Up",
-                    SignInButtonText = "Sign In with Google",
+                    SignInButtonText = "Sign In",
                     SubmitButtonIcon = SignUpIcon,
                     tosUrl = "#",
                     privacyPolicyUrl = "#",
@@ -425,18 +425,19 @@ export default ({
 
                 <LogoImage src={illustration} />
 
-                
-                <SubmitButton type="submit" href="/signup">
-                    <SubmitButtonIcon className="icon"/>
-                    <Link to="/signup">
-                    <span className="text">{SignUpButtonText}</span>
-                    </Link>
-                </SubmitButton>
-                
-                <SubmitButton type="submit">
-                    <SubmitButtonIcon className="icon" />
-                    <span className="text">{SignInButtonText}</span>
-                </SubmitButton>
+                <Link tw="w-full" to="/signup">
+                    <SubmitButton type="submit">
+                        <SubmitButtonIcon className="icon"/>
+                        <span className="text">{SignUpButtonText}</span>
+                    </SubmitButton>
+                </Link>
+
+                <Link tw="w-full" to="/signin">
+                    <SubmitButton type="submit">
+                        <SubmitButtonIcon className="icon" />
+                        <span className="text">{SignInButtonText}</span>
+                    </SubmitButton>
+                </Link>
                 {/*
                 <GoogleLogin
                     clientId={clientId}

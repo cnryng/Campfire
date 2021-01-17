@@ -109,6 +109,7 @@ import ProfilePage from "./pages/Profile.js";
 import BlogPage from "./pages/BlogIndexCampfire.js";
 import WritePage from "./pages/BigInput.js";
 import LoginGoogle from "LoginGoogle.js";
+import LoginPage from "./pages/LoginCampfire.js";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -133,6 +134,9 @@ export default function App() {
         </Route>
         <Route exact path="/signup">
           <SignUpPage />
+        </Route>
+        <Route exact path="/signin">
+          <LoginPage />
         </Route>
         <Route exact path="/read">
           <BlogPage />
