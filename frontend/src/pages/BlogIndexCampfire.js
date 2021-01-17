@@ -34,7 +34,7 @@ const PostContainer = styled.div`
       }
     `}
 `;
-const Post = tw.div`cursor-pointer flex flex-col bg-gray-100 rounded-lg`;
+const Post = tw.div`cursor-pointer flex flex-col bg-gray-100 rounded-lg my-4`;
 const Image = styled.div`
   ${props => css`background-image: url("${props.imageSrc}");`}
   ${tw`h-64 w-full bg-cover bg-center rounded-t-lg`}
@@ -88,6 +88,7 @@ export default () => {
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({comment: comment, post_id: pid, session: session})
         });
+        handleClose(); //clicking the send button should close the modal
     };
 
     const onEmojiClick = (pid, event, emojiObject) => {
@@ -103,6 +104,18 @@ export default () => {
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    const countReacts = (str) => {
+        let count = 0;
+        let index = 17;
+        while (index < str.length) {
+            count += parseInt(str[index])
+            index += 19;
+        }
+        return count;
+    }
+
+    //const test = () => console.log(countReacts(posts[0].reacts));
 
     return (
         <AnimationRevealPage>
@@ -138,7 +151,8 @@ export default () => {
                                         {postInModal.content}
                                     </Entry>
                                 </Post>
-                                <div>
+                                <Heading>Reactions</Heading>
+                                <div style={{display:"flex"}}>
                                     {postInModal.reacts ? Object.entries(JSON.parse(postInModal.reacts)).map(
                                         (k) => <p>{k}</p>) : ''}
                                 </div>
@@ -151,10 +165,10 @@ export default () => {
                                         }
                                     </div>
                                 </div>
-
+                                <Heading>Comments</Heading>
                                 <div>
                                     {postInModal.comments ? Object.entries(JSON.parse(postInModal.comments)).map(
-                                        (k) => <p>{k}</p>) : ''}
+                                        (k) => <Post>{String(k).substring(2)}</Post>) : ''}
                                 </div>
                                 <Input onChange={(e) => setComment(e.target.value)}
                                        placeholder="Write a comment..."
@@ -164,6 +178,7 @@ export default () => {
                                 <SubmitButton onClick={() => sendComment(postInModal.id)}>Send comment</SubmitButton>
                             </Modal.Body>
                         </Modal>
+
                         {!posts || posts.map((post, index) => (
                             <PostContainer key={index}>
                                 <Post className="group" as="a" href={post.url} onClick={() => {
@@ -174,11 +189,12 @@ export default () => {
                                         <Author>{getName(post)}</Author>
                                         <CreationDate>{new Date(post.time * 1000).toLocaleTimeString()}</CreationDate>
                                         <Title>{post.prompt}</Title>
-                                        <Description>{post.content.substring(0, 24) + ((post.content.length > 25) ? "..." : "")}</Description>
+                                        <Description>{post.content.substring(0, 24) + ((post.content.length > 24) ? "..." : "")}</Description>
                                     </Info>
                                 </Post>
                             </PostContainer>
                         ))}
+
                     </Posts>
                 </ContentWithPaddingXl>
             </Container>
